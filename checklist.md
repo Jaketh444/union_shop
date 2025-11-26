@@ -54,7 +54,7 @@
 
 ### README (5%)
 
-- [ ] Delete the starter README
+- [X] Delete the starter README
 - [ ] Create a detailed, well-structured, accurate README
 - [ ] Explain your app
 - [ ] Document external services
