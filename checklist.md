@@ -2,19 +2,19 @@
 
 ## 1. Setup & Preparation
 
-- [ ] Have a working GitHub account
-- [ ] Complete Worksheet 0 (GitHub basics)
-- [ ] Ensure you can run and edit Flutter projects (Worksheet 1)
-- [ ] Set up your development environment (local machine / Firebase Studio)
+- [X] Have a working GitHub account
+- [X] Complete Worksheet 0 (GitHub basics)
+- [X] Ensure you can run and edit Flutter projects (Worksheet 1)
+- [X] Set up your development environment (local machine / Firebase Studio)
 
 ## 2. Repository Setup
 
-- [ ] Fork the repository: `github.com/manighahrmani/union_shop`
-- [ ] Ensure the fork name is exactly `union_shop`
-- [ ] Clone your fork locally or into Firebase Studio
-- [ ] Install dependencies (`flutter pub get`)
-- [ ] Run the project on Chrome (`flutter run -d chrome`)
-- [ ] Open DevTools → Mobile View (e.g., iPhone 12 Pro)
+- [X] Fork the repository: `github.com/manighahrmani/union_shop`
+- [X] Ensure the fork name is exactly `union_shop`
+- [X] Clone your fork locally or into Firebase Studio
+- [X] Install dependencies (`flutter pub get`)
+- [X] Run the project on Chrome (`flutter run -d chrome`)
+- [X] Open DevTools → Mobile View (e.g., iPhone 12 Pro)
 
 ## 3. Application Development — Basic Features (40% of 30% app marks)
 
