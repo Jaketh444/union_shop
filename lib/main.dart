@@ -340,14 +340,15 @@ class HomeScreen extends StatelessWidget {
             // Footer
             Container(
               width: double.infinity,
-              color: Colors.grey[50],
+              color: Colors.grey[100],
               padding: const EdgeInsets.all(24),
               child: const Text(
-                'Placeholder Footer',
+                '© 2025 Union Shop. All rights reserved.',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
             ),
