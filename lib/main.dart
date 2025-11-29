@@ -136,8 +136,9 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                               TextButton(
-                                onPressed:
-                                    () {}, // TODO: Implement Contact navigation
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/contact');
+                                },
                                 child: const Text(
                                   'Contact',
                                   style: TextStyle(
