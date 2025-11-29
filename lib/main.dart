@@ -304,7 +304,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisCount:
                           MediaQuery.of(context).size.width > 600 ? 2 : 1,
                       crossAxisSpacing: 24,
-                      mainAxisSpacing: 48,
+                      mainAxisSpacing: 64, // was 48
                       children: const [
                         ProductCard(
                           title: 'Placeholder Product 1',
@@ -339,8 +339,8 @@ class HomeScreen extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF4d2963),
                         foregroundColor: Colors.white,
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 32, vertical: 16),
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.zero,
                         ),
@@ -353,6 +353,11 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            const Divider(
+              height: 1,
+              thickness: 1,
+              color: Colors.grey,
             ),
 
             // Footer
