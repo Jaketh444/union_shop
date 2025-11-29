@@ -80,13 +80,13 @@ class HomeScreen extends StatelessWidget {
                             },
                             child: Image.network(
                               'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                              height: 48, // was 18
+                              height: 48,
                               fit: BoxFit.cover,
                               errorBuilder: (context, error, stackTrace) {
                                 return Container(
                                   color: Colors.grey[300],
-                                  width: 48, // was 18
-                                  height: 48, // was 18
+                                  width: 48,
+                                  height: 48,
                                   child: const Center(
                                     child: Icon(Icons.image_not_supported,
                                         color: Colors.grey),
@@ -94,6 +94,49 @@ class HomeScreen extends StatelessWidget {
                                 );
                               },
                             ),
+                          ),
+                          // Add navigation links here
+                          const SizedBox(width: 24),
+                          Row(
+                            children: [
+                              TextButton(
+                                onPressed:
+                                    () {}, // TODO: Implement Shop navigation
+                                child: const Text(
+                                  'Shop',
+                                  style: TextStyle(
+                                    color: Color(0xFF4d2963),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/about');
+                                },
+                                child: const Text(
+                                  'About',
+                                  style: TextStyle(
+                                    color: Color(0xFF4d2963),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed:
+                                    () {}, // TODO: Implement Contact navigation
+                                child: const Text(
+                                  'Contact',
+                                  style: TextStyle(
+                                    color: Color(0xFF4d2963),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                           const Spacer(),
                           ConstrainedBox(
