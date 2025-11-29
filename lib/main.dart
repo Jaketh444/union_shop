@@ -18,7 +18,7 @@ class UnionShopApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
       ),
-      home: const HomeScreen(),
+      home: HomeScreen(),
       // By default, the app starts at the '/' route, which is the HomeScreen
       initialRoute: '/',
       // When navigating to '/product', build and return the ProductPage
@@ -33,7 +33,9 @@ class UnionShopApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final GlobalKey productsKey = GlobalKey();
 
   void navigateToHome(BuildContext context) {
     Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
@@ -43,8 +45,17 @@ class HomeScreen extends StatelessWidget {
     Navigator.pushNamed(context, '/product');
   }
 
-  void placeholderCallbackForButtons() {
-    // This is the event handler for buttons that don't work yet
+  void placeholderCallbackForButtons() {}
+
+  void scrollToProducts(BuildContext context) {
+    final productsContext = productsKey.currentContext;
+    if (productsContext != null) {
+      Scrollable.ensureVisible(
+        productsContext,
+        duration: const Duration(milliseconds: 400),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 
   @override
@@ -111,8 +122,7 @@ class HomeScreen extends StatelessWidget {
                           Row(
                             children: [
                               TextButton(
-                                onPressed:
-                                    () {}, // TODO: Implement Shop navigation
+                                onPressed: () => scrollToProducts(context),
                                 child: const Text(
                                   'Shop',
                                   style: TextStyle(
@@ -295,6 +305,7 @@ class HomeScreen extends StatelessWidget {
 
             // Products Section
             Container(
+              key: productsKey,
               color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.all(40.0),
@@ -369,6 +380,57 @@ class HomeScreen extends StatelessWidget {
               height: 1,
               thickness: 1,
               color: Colors.grey,
+            ),
+
+            // Placeholder for category navigation
+            Container(
+              width: double.infinity,
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: const Center(
+                child: Text(
+                  'Category navigation coming soon...',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+            ),
+
+            // Placeholder for search/filter
+            Container(
+              width: double.infinity,
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: const Center(
+                child: Text(
+                  'Search and filter functionality coming soon...',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+            ),
+
+            // Placeholder for shopping cart
+            Container(
+              width: double.infinity,
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 24),
+              child: const Center(
+                child: Text(
+                  'Shopping cart and checkout coming soon...',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 16,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
             ),
 
             // Footer
