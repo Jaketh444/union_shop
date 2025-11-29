@@ -80,13 +80,13 @@ class HomeScreen extends StatelessWidget {
                             },
                             child: Image.network(
                               'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
-                              height: 18,
+                              height: 48, // was 18
                               fit: BoxFit.cover,
                               errorBuilder: (context, error, stackTrace) {
                                 return Container(
                                   color: Colors.grey[300],
-                                  width: 18,
-                                  height: 18,
+                                  width: 48, // was 18
+                                  height: 48, // was 18
                                   child: const Center(
                                     child: Icon(Icons.image_not_supported,
                                         color: Colors.grey),
