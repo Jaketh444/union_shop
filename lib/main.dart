@@ -71,7 +71,8 @@ class HomeScreen extends StatelessWidget {
                   // Main header
                   Expanded(
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: 24), // was 10
                       child: Row(
                         children: [
                           GestureDetector(
