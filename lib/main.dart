@@ -337,11 +337,11 @@ class HomeScreen extends StatelessWidget {
                       onPressed:
                           () {}, // TODO: Implement navigation to all products
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF4d2963),
+                        backgroundColor: const Color(0xFF4d2963),
                         foregroundColor: Colors.white,
                         padding:
-                            EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                        shape: RoundedRectangleBorder(
+                            const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                        shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.zero,
                         ),
                       ),
