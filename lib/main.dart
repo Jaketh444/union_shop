@@ -332,6 +332,24 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 32),
+                    ElevatedButton(
+                      onPressed:
+                          () {}, // TODO: Implement navigation to all products
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF4d2963),
+                        foregroundColor: Colors.white,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.zero,
+                        ),
+                      ),
+                      child: const Text(
+                        'VIEW ALL PRODUCTS',
+                        style: TextStyle(fontSize: 14, letterSpacing: 1),
+                      ),
+                    ),
                   ],
                 ),
               ),
