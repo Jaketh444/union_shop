@@ -37,7 +37,8 @@ class CollectionsPage extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -54,7 +55,8 @@ class CollectionsPage extends StatelessWidget {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: MediaQuery.of(context).size.width < 600 ? 1 : 2,
+                        crossAxisCount:
+                            MediaQuery.of(context).size.width < 600 ? 1 : 2,
                         crossAxisSpacing: 24,
                         mainAxisSpacing: 24,
                         childAspectRatio: 1.6,
@@ -77,8 +79,9 @@ class CollectionsPage extends StatelessWidget {
                                   child: Image.network(
                                     collection['image']!,
                                     fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) =>
-                                        Container(color: Colors.grey[300]),
+                                    errorBuilder:
+                                        (context, error, stackTrace) =>
+                                            Container(color: Colors.grey[300]),
                                   ),
                                 ),
                                 Container(
