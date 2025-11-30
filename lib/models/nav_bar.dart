@@ -35,11 +35,6 @@ class UnionShopNavBar extends StatelessWidget {
             child:
                 const Text('About', style: TextStyle(color: Color(0xFF4d2963))),
           ),
-          TextButton(
-            onPressed: () => Navigator.pushNamed(context, '/contact'),
-            child: const Text('Contact',
-                style: TextStyle(color: Color(0xFF4d2963))),
-          ),
           const SizedBox(width: 24),
         ],
       ),
