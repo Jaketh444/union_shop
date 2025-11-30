@@ -19,8 +19,8 @@
 ## 3. Application Development — Basic Features (40% of 30% app marks)
 
 - [ ] Static homepage (hardcoded content)
-- [ ] About Us page
-- [ ] Footer with dummy links
+- [X] About Us page
+- [X] Footer with dummy links
 - [ ] Dummy collections page
 - [ ] Dummy collection page (products in one collection)
 - [ ] Dummy product page (details; dropdowns don't need to function)
