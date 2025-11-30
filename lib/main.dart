@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/product_page.dart';
 import 'package:union_shop/about_page.dart';
 import 'package:union_shop/contact_page.dart'; // Add this import
-import 'package:union_shop/nav_bar.dart';
+import 'package:union_shop/models/nav_bar.dart';
 
 void main() {
   runApp(const UnionShopApp());
