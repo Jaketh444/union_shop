@@ -118,9 +118,9 @@ assets/
 
 ## Contact
 
-Created by [Your Name]  
-Email: your.email@example.com  
-GitHub: [yourusername](https://github.com/yourusername)
+Created by [Jake Friend]  
+Email: jakefriend3012@gmail.com  
+GitHub: [Jaketh444](https://github.com/jaketh444)
 
 ---
 
