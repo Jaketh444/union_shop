@@ -8,18 +8,25 @@ Browse official merchandise, view collections, and explore products in a modern,
 ## Features
 
 - Responsive design for desktop and mobile
-- Reusable header, navigation bar, and footer
+- Reusable header, navigation bar (collapsible on mobile), and footer
 - Static homepage with featured products
-- About page with shop information
-- Product details page (static)
-- Easy navigation between pages
+- About Us page
+- Dummy collections page
+- Footer with dummy links
 
 > **Planned Features:**  
-> - Dynamic product loading  
-> - Collections page  
-> - Shopping cart and checkout  
-> - User authentication  
-> - Search and filter features
+> - Dummy collection page (products in one collection)  
+> - Dummy product page (details; dropdowns don't need to function)  
+> - Sale collection page  
+> - Authentication UI (login/signup screens — no backend needed)  
+> - Dynamic collections and product pages  
+> - Shopping cart  
+> - Print Shack page  
+> - Full navigation and URL routing  
+> - Full authentication system  
+> - Account dashboard  
+> - Cart management  
+> - Search system
 
 ---
 
@@ -51,7 +58,7 @@ flutter run
 ## Usage
 
 - Browse the homepage for featured products.
-- Use the navigation bar to access the About page and product details.
+- Use the navigation bar to access the About page and collections.
 - The layout adapts for mobile and desktop screens.
 
 ---
@@ -63,10 +70,13 @@ lib/
   main.dart            # App entry point and homepage
   about_page.dart      # About Us page
   product_page.dart    # Product details page
+  collections_page.dart # Dummy collections page
   models/
     nav_bar.dart       # Reusable navigation bar widget
     header.dart        # Reusable header widget
     footer.dart        # Reusable footer widget
+assets/
+  # Placeholder for future images and static files
 ```
 
 ---
@@ -81,15 +91,16 @@ lib/
 
 ## Known Issues / Limitations
 
-- Product data is static (no backend integration yet)
-- Collections page and cart functionality are planned
+- Product and collection data is static (no backend integration yet)
+- Some pages and features are placeholders
 - Accessibility improvements ongoing
 
 ---
 
 ## Future Improvements
 
-- Dynamic product loading
+- Complete all checklist features (see `checklist.md`)
+- Dynamic product and collection pages
 - Shopping cart and checkout
 - User authentication
 - Search and filter features
@@ -97,11 +108,19 @@ lib/
 
 ---
 
+## Contribution Guidelines
+
+- Commit regularly with small, meaningful messages
+- Keep code clean and organized
+- Follow project structure and naming conventions
+
+---
+
 ## Contact
 
-Created by Jake Friend  
-Email: jakefriend3012@gmail.com  
-GitHub: Jaketh444(https://github.com/Jaketh444)
+Created by [Your Name]  
+Email: your.email@example.com  
+GitHub: [yourusername](https://github.com/yourusername)
 
 ---
 
