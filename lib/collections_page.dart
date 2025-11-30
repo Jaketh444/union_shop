@@ -80,7 +80,8 @@ class CollectionsPage extends StatelessWidget {
                                     child: Image.network(
                                       collection['image']!,
                                       fit: BoxFit.cover,
-                                      errorBuilder: (context, error, stackTrace) =>
+                                      errorBuilder: (context, error,
+                                              stackTrace) =>
                                           Container(color: Colors.grey[300]),
                                     ),
                                   ),
