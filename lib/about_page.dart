@@ -28,7 +28,8 @@ class AboutPage extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: horizontalPadding, vertical: verticalPadding),
+                        horizontal: horizontalPadding,
+                        vertical: verticalPadding),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -58,7 +59,9 @@ class AboutPage extends StatelessWidget {
                         SizedBox(height: blockSpacing),
                         Text(
                           "Visit us in person or browse online to find your perfect piece of Portsmouth!",
-                          style: TextStyle(fontSize: bodyFontSize, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontSize: bodyFontSize,
+                              fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: blockSpacing),
                         Container(
@@ -69,7 +72,8 @@ class AboutPage extends StatelessWidget {
                           ),
                           child: Row(
                             children: [
-                              const Icon(Icons.location_on, color: Color(0xFF4d2963)),
+                              const Icon(Icons.location_on,
+                                  color: Color(0xFF4d2963)),
                               SizedBox(width: isMobile ? 8 : 12),
                               Expanded(
                                 child: Text(
@@ -94,7 +98,9 @@ class AboutPage extends StatelessWidget {
                               Expanded(
                                 child: SelectableText(
                                   "shop@upsu.net",
-                                  style: TextStyle(fontSize: infoFontSize, color: Colors.blue),
+                                  style: TextStyle(
+                                      fontSize: infoFontSize,
+                                      color: Colors.blue),
                                 ),
                               ),
                             ],

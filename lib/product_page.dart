@@ -38,7 +38,8 @@ class ProductPage extends StatelessWidget {
                       // Top banner
                       Container(
                         width: double.infinity,
-                        padding: EdgeInsets.symmetric(vertical: isMobile ? 4 : 8),
+                        padding:
+                            EdgeInsets.symmetric(vertical: isMobile ? 4 : 8),
                         color: const Color(0xFF4d2963),
                         child: const Text(
                           'PLACEHOLDER HEADER TEXT',
@@ -49,7 +50,8 @@ class ProductPage extends StatelessWidget {
                       // Main header
                       Expanded(
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: isMobile ? 4 : 10),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: isMobile ? 4 : 10),
                           child: Row(
                             children: [
                               GestureDetector(
@@ -75,7 +77,8 @@ class ProductPage extends StatelessWidget {
                               ),
                               const Spacer(),
                               ConstrainedBox(
-                                constraints: const BoxConstraints(maxWidth: 600),
+                                constraints:
+                                    const BoxConstraints(maxWidth: 600),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
