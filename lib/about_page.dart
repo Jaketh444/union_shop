@@ -58,8 +58,8 @@ class AboutPage extends StatelessWidget {
                         color: Colors.grey[100],
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Row(
-                        children: const [
+                      child: const Row(
+                        children: [
                           Icon(Icons.location_on, color: Color(0xFF4d2963)),
                           SizedBox(width: 12),
                           Expanded(
@@ -78,8 +78,8 @@ class AboutPage extends StatelessWidget {
                         color: Colors.grey[100],
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Row(
-                        children: const [
+                      child: const Row(
+                        children: [
                           Icon(Icons.email, color: Color(0xFF4d2963)),
                           SizedBox(width: 12),
                           Expanded(
