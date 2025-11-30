@@ -53,7 +53,7 @@ class CollectionsPage extends StatelessWidget {
                   LayoutBuilder(
                     builder: (context, constraints) {
                       final crossAxisCount = constraints.maxWidth < 600 ? 1 : 2;
-                      return const GridView.builder(
+                      return GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
