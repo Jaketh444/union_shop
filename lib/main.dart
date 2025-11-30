@@ -62,77 +62,165 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          const UnionShopHeader(),
-          UnionShopNavBar(context),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  // Hero Section
-                  SizedBox(
-                    height: 400,
-                    width: double.infinity,
-                    child: Stack(
-                      children: [
-                        // Background image
-                        Positioned.fill(
-                          child: Container(
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                  'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final isMobile = constraints.maxWidth < 600;
+          final heroHeight = isMobile ? 220.0 : 400.0;
+          final horizontalPadding = isMobile ? 12.0 : 24.0;
+          final sectionPadding = isMobile ? 20.0 : 40.0;
+          final titleFontSize = isMobile ? 22.0 : 32.0;
+          final subtitleFontSize = isMobile ? 15.0 : 20.0;
+          final productTitleFontSize = isMobile ? 16.0 : 20.0;
+          final gridCrossAxisCount = isMobile ? 1 : 2;
+
+          return Column(
+            children: [
+              const UnionShopHeader(),
+              UnionShopNavBar(context),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // Hero Section
+                      SizedBox(
+                        height: heroHeight,
+                        width: double.infinity,
+                        child: Stack(
+                          children: [
+                            // Background image
+                            Positioned.fill(
+                              child: Container(
+                                decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                    image: NetworkImage(
+                                      'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
+                                    ),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                                fit: BoxFit.cover,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(0.7),
+                                  ),
+                                ),
                               ),
                             ),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.7),
+                            // Content overlay
+                            Positioned(
+                              left: horizontalPadding,
+                              right: horizontalPadding,
+                              top: isMobile ? 32 : 80,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Welcome to the UPSU Shop',
+                                    style: TextStyle(
+                                      fontSize: titleFontSize,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      height: 1.2,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 12),
+                                  Text(
+                                    "Shop official University of Portsmouth merchandise and gifts.",
+                                    style: TextStyle(
+                                      fontSize: subtitleFontSize,
+                                      color: Colors.white,
+                                      height: 1.5,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const SizedBox(height: 24),
+                                  ElevatedButton(
+                                    onPressed: placeholderCallbackForButtons,
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xFF4d2963),
+                                      foregroundColor: Colors.white,
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.zero,
+                                      ),
+                                    ),
+                                    child: const Text(
+                                      'BROWSE PRODUCTS',
+                                      style: TextStyle(
+                                          fontSize: 14, letterSpacing: 1),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                        // Content overlay
-                        Positioned(
-                          left: 24,
-                          right: 24,
-                          top: 80,
+                      ),
+
+                      // Products Section
+                      Container(
+                        key: productsKey,
+                        color: Colors.white,
+                        child: Padding(
+                          padding: EdgeInsets.all(sectionPadding),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const Text(
-                                'Welcome to the UPSU Shop',
+                              Text(
+                                'Featured Products',
                                 style: TextStyle(
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  height: 1.2,
+                                  fontSize: productTitleFontSize,
+                                  color: Colors.black,
+                                  letterSpacing: 1,
                                 ),
                               ),
-                              const SizedBox(height: 16),
-                              const Text(
-                                "Shop official University of Portsmouth merchandise and gifts.",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  height: 1.5,
-                                ),
-                                textAlign: TextAlign.center,
+                              SizedBox(height: isMobile ? 24 : 48),
+                              GridView.count(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                crossAxisCount: gridCrossAxisCount,
+                                crossAxisSpacing: isMobile ? 12 : 24,
+                                mainAxisSpacing: isMobile ? 24 : 64,
+                                childAspectRatio: isMobile ? 1.2 : 1.5,
+                                children: const [
+                                  ProductCard(
+                                    title: 'Placeholder Product 1',
+                                    price: '£10.00',
+                                    imageUrl:
+                                        'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                                  ),
+                                  ProductCard(
+                                    title: 'Placeholder Product 2',
+                                    price: '£15.00',
+                                    imageUrl:
+                                        'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                                  ),
+                                  ProductCard(
+                                    title: 'Placeholder Product 3',
+                                    price: '£20.00',
+                                    imageUrl:
+                                        'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                                  ),
+                                  ProductCard(
+                                    title: 'Placeholder Product 4',
+                                    price: '£25.00',
+                                    imageUrl:
+                                        'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
+                                  ),
+                                ],
                               ),
-                              const SizedBox(height: 32),
+                              SizedBox(height: isMobile ? 16 : 32),
                               ElevatedButton(
-                                onPressed: placeholderCallbackForButtons,
+                                onPressed: () {},
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: const Color(0xFF4d2963),
                                   foregroundColor: Colors.white,
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: isMobile ? 16 : 32,
+                                      vertical: isMobile ? 10 : 16),
                                   shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.zero,
                                   ),
                                 ),
                                 child: const Text(
-                                  'BROWSE PRODUCTS',
+                                  'VIEW ALL PRODUCTS',
                                   style:
                                       TextStyle(fontSize: 14, letterSpacing: 1),
                                 ),
@@ -140,146 +228,76 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
+                      const Divider(
+                        height: 1,
+                        thickness: 1,
+                        color: Colors.grey,
+                      ),
 
-                  // Products Section
-                  Container(
-                    key: productsKey,
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(40.0),
-                      child: Column(
-                        children: [
-                          const Text(
-                            'Featured Products',
+                      // Placeholder for category navigation
+                      Container(
+                        width: double.infinity,
+                        color: Colors.white,
+                        padding:
+                            EdgeInsets.symmetric(vertical: isMobile ? 12 : 24),
+                        child: const Center(
+                          child: Text(
+                            'Category navigation coming soon...',
                             style: TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              letterSpacing: 1,
+                              color: Colors.grey,
+                              fontSize: 16,
+                              fontStyle: FontStyle.italic,
                             ),
                           ),
-                          const SizedBox(height: 48),
-                          GridView.count(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            crossAxisCount:
-                                MediaQuery.of(context).size.width > 600 ? 2 : 1,
-                            crossAxisSpacing: 24,
-                            mainAxisSpacing: 64,
-                            children: const [
-                              ProductCard(
-                                title: 'Placeholder Product 1',
-                                price: '£10.00',
-                                imageUrl:
-                                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                              ),
-                              ProductCard(
-                                title: 'Placeholder Product 2',
-                                price: '£15.00',
-                                imageUrl:
-                                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                              ),
-                              ProductCard(
-                                title: 'Placeholder Product 3',
-                                price: '£20.00',
-                                imageUrl:
-                                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                              ),
-                              ProductCard(
-                                title: 'Placeholder Product 4',
-                                price: '£25.00',
-                                imageUrl:
-                                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 32),
-                          ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF4d2963),
-                              foregroundColor: Colors.white,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 32, vertical: 16),
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.zero,
-                              ),
-                            ),
-                            child: const Text(
-                              'VIEW ALL PRODUCTS',
-                              style: TextStyle(fontSize: 14, letterSpacing: 1),
+                        ),
+                      ),
+
+                      // Placeholder for search/filter
+                      Container(
+                        width: double.infinity,
+                        color: Colors.white,
+                        padding:
+                            EdgeInsets.symmetric(vertical: isMobile ? 12 : 24),
+                        child: const Center(
+                          child: Text(
+                            'Search and filter functionality coming soon...',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 16,
+                              fontStyle: FontStyle.italic,
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const Divider(
-                    height: 1,
-                    thickness: 1,
-                    color: Colors.grey,
-                  ),
-
-                  // Placeholder for category navigation
-                  Container(
-                    width: double.infinity,
-                    color: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 24),
-                    child: const Center(
-                      child: Text(
-                        'Category navigation coming soon...',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16,
-                          fontStyle: FontStyle.italic,
                         ),
                       ),
-                    ),
-                  ),
 
-                  // Placeholder for search/filter
-                  Container(
-                    width: double.infinity,
-                    color: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 24),
-                    child: const Center(
-                      child: Text(
-                        'Search and filter functionality coming soon...',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16,
-                          fontStyle: FontStyle.italic,
+                      // Placeholder for shopping cart
+                      Container(
+                        width: double.infinity,
+                        color: Colors.white,
+                        padding:
+                            EdgeInsets.symmetric(vertical: isMobile ? 12 : 24),
+                        child: const Center(
+                          child: Text(
+                            'Shopping cart and checkout coming soon...',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 16,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
 
-                  // Placeholder for shopping cart
-                  Container(
-                    width: double.infinity,
-                    color: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 24),
-                    child: const Center(
-                      child: Text(
-                        'Shopping cart and checkout coming soon...',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 16,
-                          fontStyle: FontStyle.italic,
-                        ),
-                      ),
-                    ),
+                      // Replace old footer with reusable footer
+                      const UnionShopFooter(),
+                    ],
                   ),
-
-                  // Replace old footer with reusable footer
-                  const UnionShopFooter(),
-                ],
+                ),
               ),
-            ),
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }
