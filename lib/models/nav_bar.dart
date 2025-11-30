@@ -31,11 +31,13 @@ class UnionShopNavBar extends StatelessWidget {
               if (!isMobile) ...[
                 TextButton(
                   onPressed: () => Navigator.pushNamed(context, '/'),
-                  child: const Text('Shop', style: TextStyle(color: Color(0xFF4d2963))),
+                  child: const Text('Shop',
+                      style: TextStyle(color: Color(0xFF4d2963))),
                 ),
                 TextButton(
                   onPressed: () => Navigator.pushNamed(context, '/about'),
-                  child: const Text('About', style: TextStyle(color: Color(0xFF4d2963))),
+                  child: const Text('About',
+                      style: TextStyle(color: Color(0xFF4d2963))),
                 ),
                 const SizedBox(width: 24),
               ] else ...[
