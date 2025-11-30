@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
+import 'package:union_shop/models/footer.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -9,6 +11,7 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          const UnionShopHeader(),
           UnionShopNavBar(context),
           Expanded(
             child: SingleChildScrollView(
@@ -93,6 +96,7 @@ class AboutPage extends StatelessWidget {
               ),
             ),
           ),
+          const UnionShopFooter(),
         ],
       ),
     );

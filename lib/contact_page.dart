@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
+import 'package:union_shop/models/footer.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({super.key});
@@ -9,6 +11,7 @@ class ContactPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          const UnionShopHeader(),
           UnionShopNavBar(context),
           const Expanded(
             child: Padding(
@@ -43,6 +46,7 @@ class ContactPage extends StatelessWidget {
               ),
             ),
           ),
+          const UnionShopFooter(),
         ],
       ),
     );
