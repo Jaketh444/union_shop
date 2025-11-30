@@ -35,6 +35,11 @@ class UnionShopNavBar extends StatelessWidget {
                       style: TextStyle(color: Color(0xFF4d2963))),
                 ),
                 TextButton(
+                  onPressed: () => Navigator.pushNamed(context, '/collections'),
+                  child: const Text('Collections',
+                      style: TextStyle(color: Color(0xFF4d2963))),
+                ),
+                TextButton(
                   onPressed: () => Navigator.pushNamed(context, '/about'),
                   child: const Text('About',
                       style: TextStyle(color: Color(0xFF4d2963))),
@@ -49,6 +54,8 @@ class UnionShopNavBar extends StatelessWidget {
                       if (value == 0) {
                         Navigator.pushNamed(context, '/');
                       } else if (value == 1) {
+                        Navigator.pushNamed(context, '/collections');
+                      } else if (value == 2) {
                         Navigator.pushNamed(context, '/about');
                       }
                     },
@@ -59,6 +66,10 @@ class UnionShopNavBar extends StatelessWidget {
                       ),
                       const PopupMenuItem(
                         value: 1,
+                        child: Text('Collections'),
+                      ),
+                      const PopupMenuItem(
+                        value: 2,
                         child: Text('About'),
                       ),
                     ],
