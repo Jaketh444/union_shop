@@ -30,11 +30,12 @@ class ProductPage extends StatelessWidget {
           return Column(
             children: [
               const UnionShopHeader(),
-              UnionShopNavBar(context),
+              UnionShopNavBar(context, selectedIndex: 2),
               Expanded(
                 child: SingleChildScrollView(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: horizontalPadding),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -57,7 +58,8 @@ class ProductPage extends StatelessWidget {
                                   color: Colors.grey[300],
                                   child: const Center(
                                     child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Icon(
                                           Icons.image_not_supported,

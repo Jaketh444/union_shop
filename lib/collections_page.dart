@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/footer.dart';
-import 'dart:developer' as developer;
 
 class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
@@ -36,7 +35,7 @@ class CollectionsPage extends StatelessWidget {
       body: Column(
         children: [
           const UnionShopHeader(),
-          UnionShopNavBar(context),
+          UnionShopNavBar(context, selectedIndex: 3),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),

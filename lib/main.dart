@@ -83,7 +83,7 @@ class HomeScreen extends StatelessWidget {
           return Column(
             children: [
               const UnionShopHeader(),
-              UnionShopNavBar(context),
+              UnionShopNavBar(context, selectedIndex: 0),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(

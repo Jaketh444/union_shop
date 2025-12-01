@@ -23,7 +23,7 @@ class AboutPage extends StatelessWidget {
           return Column(
             children: [
               const UnionShopHeader(),
-              UnionShopNavBar(context),
+              UnionShopNavBar(context, selectedIndex: 1),
               Expanded(
                 child: SingleChildScrollView(
                   child: Padding(

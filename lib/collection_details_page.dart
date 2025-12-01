@@ -11,29 +11,14 @@ class AccessoriesCollectionPage extends StatelessWidget {
     // Dummy product data for Accessories collection
     final products = [
       {
-        'name': 'Portsmouth Keyring',
+        'name': 'Accessory Product 1',
         'image': 'https://via.placeholder.com/300',
-        'price': '£3.00',
+        'price': '£10.00',
       },
       {
-        'name': 'University Tote Bag',
+        'name': 'Accessory Product 2',
         'image': 'https://via.placeholder.com/300',
-        'price': '£6.00',
-      },
-      {
-        'name': 'UPSU Water Bottle',
-        'image': 'https://via.placeholder.com/300',
-        'price': '£8.00',
-      },
-      {
-        'name': 'Portsmouth Lanyard',
-        'image': 'https://via.placeholder.com/300',
-        'price': '£2.50',
-      },
-      {
-        'name': 'Student Card Holder',
-        'image': 'https://via.placeholder.com/300',
-        'price': '£4.00',
+        'price': '£15.00',
       },
     ];
 
@@ -41,7 +26,7 @@ class AccessoriesCollectionPage extends StatelessWidget {
       body: Column(
         children: [
           const UnionShopHeader(),
-          UnionShopNavBar(context, selectedIndex: 4),
+          UnionShopNavBar(context, selectedIndex: 3),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
@@ -62,24 +47,17 @@ class AccessoriesCollectionPage extends StatelessWidget {
                       itemCount: products.length,
                       itemBuilder: (context, index) {
                         final product = products[index];
-                        return InkWell(
-                          onTap: product['name'] == 'UPSU Water Bottle'
-                              ? () {
-                                  Navigator.pushNamed(context, '/waterbottle');
-                                }
-                              : null,
-                          child: Card(
-                            margin: const EdgeInsets.symmetric(vertical: 12),
-                            child: ListTile(
-                              leading: Image.network(
-                                product['image']!,
-                                width: 64,
-                                height: 64,
-                                fit: BoxFit.cover,
-                              ),
-                              title: Text(product['name']!),
-                              subtitle: Text(product['price']!),
+                        return Card(
+                          margin: const EdgeInsets.symmetric(vertical: 12),
+                          child: ListTile(
+                            leading: Image.network(
+                              product['image']!,
+                              width: 64,
+                              height: 64,
+                              fit: BoxFit.cover,
                             ),
+                            title: Text(product['name']!),
+                            subtitle: Text(product['price']!),
                           ),
                         );
                       },
