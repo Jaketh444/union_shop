@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class UnionShopNavBar extends StatelessWidget {
   final BuildContext context;
-  const UnionShopNavBar(this.context, {super.key});
+  const UnionShopNavBar(this.context, {super.key, required int selectedIndex});
 
   @override
   Widget build(BuildContext ctx) {

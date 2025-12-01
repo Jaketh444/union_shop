@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/footer.dart';
+import 'package:union_shop/models/product_image_selector.dart';
 
 class WaterBottleProductPage extends StatefulWidget {
   const WaterBottleProductPage({super.key});
@@ -33,7 +34,7 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
       body: Column(
         children: [
           const UnionShopHeader(),
-          UnionShopNavBar(context),
+          UnionShopNavBar(context, selectedIndex: 0,),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
@@ -59,65 +60,12 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                           fit: BoxFit.cover,
                         ),
                         const SizedBox(height: 12),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(images.length, (i) {
-                            return GestureDetector(
-                              onTap: () => setState(() => selectedImage = i),
-                              child: Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 4),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: selectedImage == i
-                                        ? Color(0xFF4d2963)
-                                        : Colors.transparent,
-                                    width: 2,
-                                  ),
-                                ),
-                                child: Image.network(
-                                  images[i],
-                                  width: 48,
-                                  height: 48,
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            );
-                          }),
+                        ProductImageSelector(
+                          images: images,
+                          selectedImage: selectedImage,
+                          onImageSelected: (i) => setState(() => selectedImage = i),
                         ),
                       ],
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  Text(
-                    product['price'] as String,
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    product['description'] as String,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.black87,
-                    ),
-                  ),
-                  const SizedBox(height: 32),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // TODO: Add to cart functionality
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF4d2963),
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 32, vertical: 16),
-                      ),
-                      child: const Text('Add to Cart'),
                     ),
                   ),
                 ],
