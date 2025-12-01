@@ -11,14 +11,29 @@ class AccessoriesCollectionPage extends StatelessWidget {
     // Dummy product data for Accessories collection
     final products = [
       {
-        'name': 'Accessory Product 1',
+        'name': 'Portsmouth Keyring',
         'image': 'https://via.placeholder.com/300',
-        'price': '£10.00',
+        'price': '£3.00',
       },
       {
-        'name': 'Accessory Product 2',
+        'name': 'University Tote Bag',
         'image': 'https://via.placeholder.com/300',
-        'price': '£15.00',
+        'price': '£6.00',
+      },
+      {
+        'name': 'UPSU Water Bottle',
+        'image': 'https://via.placeholder.com/300',
+        'price': '£8.00',
+      },
+      {
+        'name': 'Portsmouth Lanyard',
+        'image': 'https://via.placeholder.com/300',
+        'price': '£2.50',
+      },
+      {
+        'name': 'Student Card Holder',
+        'image': 'https://via.placeholder.com/300',
+        'price': '£4.00',
       },
     ];
 
