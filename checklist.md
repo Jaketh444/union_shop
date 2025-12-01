@@ -22,7 +22,7 @@
 - [X] About Us page
 - [X] Footer with dummy links
 - [X] Dummy collections page
-- [ ] Dummy collection page (products in one collection)
+- [X] Dummy collection page (products in one collection)
 - [ ] Dummy product page (details; dropdowns don't need to function)
 - [ ] Sale collection page
 - [ ] Authentication UI (login/signup screens — no backend needed)
