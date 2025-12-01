@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/footer.dart';
+import 'dart:developer' as developer;
 
 class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
@@ -55,7 +56,10 @@ class CollectionsPage extends StatelessWidget {
                     clipBehavior: Clip.antiAlias,
                     child: InkWell(
                       onTap: () {
-                        // TODO: Navigate to dummy collection page
+                        if (collection['title'] == 'Accessories') {
+                          Navigator.pushNamed(context, '/accessories');
+                        }
+                        // TODO: Add navigation for other collections as needed
                       },
                       child: Stack(
                         children: [
