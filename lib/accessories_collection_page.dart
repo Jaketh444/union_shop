@@ -62,30 +62,24 @@ class AccessoriesCollectionPage extends StatelessWidget {
                       itemCount: products.length,
                       itemBuilder: (context, index) {
                         final product = products[index];
-                        return Card(
-                          margin: const EdgeInsets.symmetric(vertical: 12),
-                          child: ListTile(
-                            leading: Image.network(
-                              product['image']!,
-                              width: 64,
-                              height: 64,
-                              fit: BoxFit.cover,
+                        return InkWell(
+                          onTap: product['name'] == 'UPSU Water Bottle'
+                              ? () {
+                                  Navigator.pushNamed(context, '/waterbottle');
+                                }
+                              : null,
+                          child: Card(
+                            margin: const EdgeInsets.symmetric(vertical: 12),
+                            child: ListTile(
+                              leading: Image.network(
+                                product['image']!,
+                                width: 64,
+                                height: 64,
+                                fit: BoxFit.cover,
+                              ),
+                              title: Text(product['name']!),
+                              subtitle: Text(product['price']!),
                             ),
-                            title: Text(product['name']!),
-                            subtitle: Text(product['price']!),
-                            trailing: product['name'] == 'UPSU Water Bottle'
-                                ? ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.pushNamed(
-                                          context, '/waterbottle');
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.blue,
-                                      foregroundColor: Colors.white,
-                                    ),
-                                    child: null,
-                                  )
-                                : null,
                           ),
                         );
                       },
