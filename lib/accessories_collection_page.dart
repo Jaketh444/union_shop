@@ -73,6 +73,17 @@ class AccessoriesCollectionPage extends StatelessWidget {
                             ),
                             title: Text(product['name']!),
                             subtitle: Text(product['price']!),
+                            trailing: product['name'] == 'UPSU Water Bottle'
+                                ? ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/waterbottle');
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.blue,
+                                      foregroundColor: Colors.white,
+                                    ), child: null,
+                                  )
+                                : null,
                           ),
                         );
                       },
