@@ -32,7 +32,9 @@ class ProductImageSelector extends StatelessWidget {
                 margin: const EdgeInsets.symmetric(horizontal: 4),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: selectedImage == i ? Color(0xFF4d2963) : Colors.transparent,
+                    color: selectedImage == i
+                        ? Color(0xFF4d2963)
+                        : Colors.transparent,
                     width: 2,
                   ),
                 ),
