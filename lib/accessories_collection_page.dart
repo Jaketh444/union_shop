@@ -76,12 +76,14 @@ class AccessoriesCollectionPage extends StatelessWidget {
                             trailing: product['name'] == 'UPSU Water Bottle'
                                 ? ElevatedButton(
                                     onPressed: () {
-                                      Navigator.pushNamed(context, '/waterbottle');
+                                      Navigator.pushNamed(
+                                          context, '/waterbottle');
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.blue,
                                       foregroundColor: Colors.white,
-                                    ), child: null,
+                                    ),
+                                    child: null,
                                   )
                                 : null,
                           ),
