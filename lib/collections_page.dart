@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
@@ -59,7 +61,6 @@ class CollectionsPage extends StatelessWidget {
                         if (collection['title'] == 'Accessories') {
                           Navigator.pushNamed(context, '/accessories');
                         }
-                        // TODO: Add navigation for other collections as needed
                       },
                       child: Stack(
                         children: [
