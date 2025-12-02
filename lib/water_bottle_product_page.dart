@@ -3,6 +3,7 @@ import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/footer.dart';
 import 'package:union_shop/models/product_image_selector.dart';
+import 'package:union_shop/models/product_customisation.dart';
 
 class WaterBottleProductPage extends StatefulWidget {
   const WaterBottleProductPage({super.key});
@@ -13,6 +14,9 @@ class WaterBottleProductPage extends StatefulWidget {
 
 class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
   int selectedImage = 0;
+  String selectedSize = 'M';
+  String selectedColour = 'Red';
+  int quantity = 1;
 
   final Map<String, dynamic> product = {
     'name': 'UPSU Water Bottle',
@@ -24,6 +28,8 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
     'price': '£8.00',
     'description':
         'Stay hydrated with this official UPSU water bottle. Durable, stylish, and perfect for campus life.',
+    'sizes': ['S', 'M', 'L', 'XL'],
+    'colours': ['Red', 'Blue', 'Green', 'Black'],
   };
 
   @override
@@ -94,7 +100,22 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                                           color: Colors.black87,
                                         ),
                                       ),
-                                      // Future: Add customisation options and buttons here
+                                      const SizedBox(height: 24),
+                                      ProductCustomisation(
+                                        sizes: product['sizes'] as List<String>,
+                                        selectedSize: selectedSize,
+                                        onSizeChanged: (value) =>
+                                            setState(() => selectedSize = value!),
+                                        colours: product['colours'] as List<String>,
+                                        selectedColour: selectedColour,
+                                        onColourChanged: (value) =>
+                                            setState(() => selectedColour = value!),
+                                        quantity: quantity,
+                                        onIncrease: () => setState(() => quantity++),
+                                        onDecrease: () {
+                                          if (quantity > 1) setState(() => quantity--);
+                                        },
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -127,7 +148,22 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                                     color: Colors.black87,
                                   ),
                                 ),
-                                // Future: Add customisation options and buttons here
+                                const SizedBox(height: 24),
+                                ProductCustomisation(
+                                  sizes: product['sizes'] as List<String>,
+                                  selectedSize: selectedSize,
+                                  onSizeChanged: (value) =>
+                                      setState(() => selectedSize = value!),
+                                  colours: product['colours'] as List<String>,
+                                  selectedColour: selectedColour,
+                                  onColourChanged: (value) =>
+                                      setState(() => selectedColour = value!),
+                                  quantity: quantity,
+                                  onIncrease: () => setState(() => quantity++),
+                                  onDecrease: () {
+                                    if (quantity > 1) setState(() => quantity--);
+                                  },
+                                ),
                               ],
                             );
                     },
