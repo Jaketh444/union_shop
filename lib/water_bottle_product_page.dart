@@ -181,8 +181,7 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                                   },
                                   onAddToCart: () {
                                     // TODO: Add to cart functionality
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(
+                                    ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
                                           content: Text('Added to cart!')),
                                     );
