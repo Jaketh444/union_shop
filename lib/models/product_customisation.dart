@@ -13,6 +13,8 @@ class ProductCustomisation extends StatelessWidget {
   final VoidCallback onIncrease;
   final VoidCallback onDecrease;
 
+  final VoidCallback? onAddToCart;
+
   const ProductCustomisation({
     super.key,
     required this.sizes,
@@ -24,6 +26,7 @@ class ProductCustomisation extends StatelessWidget {
     required this.quantity,
     required this.onIncrease,
     required this.onDecrease,
+    this.onAddToCart,
   });
 
   @override
@@ -83,6 +86,18 @@ class ProductCustomisation extends StatelessWidget {
               onPressed: onIncrease,
             ),
           ],
+        ),
+        const SizedBox(height: 32),
+        Center(
+          child: ElevatedButton(
+            onPressed: onAddToCart,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color(0xFF4d2963),
+              foregroundColor: Colors.white,
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+            ),
+            child: const Text('Add to Cart'),
+          ),
         ),
       ],
     );

@@ -121,6 +121,15 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                                             setState(() => quantity--);
                                           }
                                         },
+                                        onAddToCart: () {
+                                          // TODO: Add to cart functionality
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                                content:
+                                                    Text('Added to cart!')),
+                                          );
+                                        },
                                       ),
                                     ],
                                   ),
@@ -169,6 +178,14 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                                   onDecrease: () {
                                     if (quantity > 1)
                                       setState(() => quantity--);
+                                  },
+                                  onAddToCart: () {
+                                    // TODO: Add to cart functionality
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(
+                                      const SnackBar(
+                                          content: Text('Added to cart!')),
+                                    );
                                   },
                                 ),
                               ],
