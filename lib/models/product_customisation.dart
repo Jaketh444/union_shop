@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class ProductCustomisation extends StatelessWidget {
   final List<String> sizes;
   final String selectedSize;
-  final ValueChanged<String> onSizeChanged;
+  final ValueChanged<String?> onSizeChanged;
 
   final List<String> colours;
   final String selectedColour;
-  final ValueChanged<String> onColourChanged;
+  final ValueChanged<String?> onColourChanged;
 
   final int quantity;
   final VoidCallback onIncrease;
@@ -35,15 +35,18 @@ class ProductCustomisation extends StatelessWidget {
           children: [
             const Text('Size: ', style: TextStyle(fontSize: 16)),
             const SizedBox(width: 8),
-            DropdownButton<String>(
-              value: selectedSize,
-              items: sizes
-                  .map((size) => DropdownMenuItem(
-                        value: size,
-                        child: Text(size),
-                      ))
-                  .toList(),
-              onChanged: onSizeChanged,
+            Expanded(
+              child: DropdownButton<String>(
+                value: selectedSize,
+                isExpanded: true,
+                items: sizes
+                    .map((size) => DropdownMenuItem(
+                          value: size,
+                          child: Text(size),
+                        ))
+                    .toList(),
+                onChanged: onSizeChanged,
+              ),
             ),
           ],
         ),
@@ -51,15 +54,18 @@ class ProductCustomisation extends StatelessWidget {
           children: [
             const Text('Colour: ', style: TextStyle(fontSize: 16)),
             const SizedBox(width: 8),
-            DropdownButton<String>(
-              value: selectedColour,
-              items: colours
-                  .map((colour) => DropdownMenuItem(
-                        value: colour,
-                        child: Text(colour),
-                      ))
-                  .toList(),
-              onChanged: onColourChanged,
+            Expanded(
+              child: DropdownButton<String>(
+                value: selectedColour,
+                isExpanded: true,
+                items: colours
+                    .map((colour) => DropdownMenuItem(
+                          value: colour,
+                          child: Text(colour),
+                        ))
+                    .toList(),
+                onChanged: onColourChanged,
+              ),
             ),
           ],
         ),

@@ -104,13 +104,15 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                                       ProductCustomisation(
                                         sizes: product['sizes'] as List<String>,
                                         selectedSize: selectedSize,
-                                        onSizeChanged: (value) => setState(
-                                            () => selectedSize = value!),
+                                        onSizeChanged: (value) => setState(() =>
+                                            selectedSize =
+                                                value ?? selectedSize),
                                         colours:
                                             product['colours'] as List<String>,
                                         selectedColour: selectedColour,
                                         onColourChanged: (value) => setState(
-                                            () => selectedColour = value!),
+                                            () => selectedColour =
+                                                value ?? selectedColour),
                                         quantity: quantity,
                                         onIncrease: () =>
                                             setState(() => quantity++),
@@ -155,12 +157,12 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                                 ProductCustomisation(
                                   sizes: product['sizes'] as List<String>,
                                   selectedSize: selectedSize,
-                                  onSizeChanged: (value) =>
-                                      setState(() => selectedSize = value!),
+                                  onSizeChanged: (value) => setState(() =>
+                                      selectedSize = value ?? selectedSize),
                                   colours: product['colours'] as List<String>,
                                   selectedColour: selectedColour,
-                                  onColourChanged: (value) =>
-                                      setState(() => selectedColour = value!),
+                                  onColourChanged: (value) => setState(() =>
+                                      selectedColour = value ?? selectedColour),
                                   quantity: quantity,
                                   onIncrease: () => setState(() => quantity++),
                                   onDecrease: () {
