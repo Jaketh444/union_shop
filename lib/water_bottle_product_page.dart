@@ -34,7 +34,10 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
       body: Column(
         children: [
           const UnionShopHeader(),
-          UnionShopNavBar(context, selectedIndex: 0,),
+          UnionShopNavBar(
+            context,
+            selectedIndex: 0,
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
