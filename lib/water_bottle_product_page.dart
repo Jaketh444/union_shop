@@ -51,21 +51,10 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                   ),
                   const SizedBox(height: 24),
                   Center(
-                    child: Column(
-                      children: [
-                        Image.network(
-                          images[selectedImage],
-                          width: 220,
-                          height: 220,
-                          fit: BoxFit.cover,
-                        ),
-                        const SizedBox(height: 12),
-                        ProductImageSelector(
-                          images: images,
-                          selectedImage: selectedImage,
-                          onImageSelected: (i) => setState(() => selectedImage = i),
-                        ),
-                      ],
+                    child: ProductImageSelector(
+                      images: images,
+                      selectedImage: selectedImage,
+                      onImageSelected: (i) => setState(() => selectedImage = i),
                     ),
                   ),
                 ],
