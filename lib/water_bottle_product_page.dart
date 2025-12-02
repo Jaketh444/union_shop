@@ -14,7 +14,7 @@ class WaterBottleProductPage extends StatefulWidget {
 
 class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
   int selectedImage = 0;
-  String selectedSize = 'M';
+  String selectedSize = '350ml'; // <-- Update to match new sizes
   String selectedColour = 'Red';
   int quantity = 1;
 
@@ -28,7 +28,7 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
     'price': '£8.00',
     'description':
         'Stay hydrated with this official UPSU water bottle. Durable, stylish, and perfect for campus life.',
-    'sizes': ['S', 'M', 'L', 'XL'],
+    'sizes': ['350ml', '500ml', '750ml', '1L'], // <-- Update sizes here
     'colours': ['Red', 'Blue', 'Green', 'Black'],
   };
 
@@ -117,8 +117,9 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                                         onIncrease: () =>
                                             setState(() => quantity++),
                                         onDecrease: () {
-                                          if (quantity > 1)
+                                          if (quantity > 1) {
                                             setState(() => quantity--);
+                                          }
                                         },
                                       ),
                                     ],
