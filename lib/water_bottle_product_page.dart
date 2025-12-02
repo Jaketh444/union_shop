@@ -58,75 +58,78 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                       final isWide = constraints.maxWidth > 600;
                       return isWide
                           ? Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // Images on the left
-                              Expanded(
-                                flex: 1,
-                                child: ProductImageSelector(
-                                  images: images,
-                                  selectedImage: selectedImage,
-                                  onImageSelected: (i) => setState(() => selectedImage = i),
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // Images on the left
+                                Expanded(
+                                  flex: 1,
+                                  child: ProductImageSelector(
+                                    images: images,
+                                    selectedImage: selectedImage,
+                                    onImageSelected: (i) =>
+                                        setState(() => selectedImage = i),
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(width: 32),
-                              // Info and buttons on the right
-                              Expanded(
-                                flex: 1,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      product['price'] as String,
-                                      style: const TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black87,
+                                const SizedBox(width: 32),
+                                // Info and buttons on the right
+                                Expanded(
+                                  flex: 1,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        product['price'] as String,
+                                        style: const TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black87,
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(height: 16),
-                                    Text(
-                                      product['description'] as String,
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        color: Colors.black87,
+                                      const SizedBox(height: 16),
+                                      Text(
+                                        product['description'] as String,
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black87,
+                                        ),
                                       ),
-                                    ),
-                                    // Future: Add customisation options and buttons here
-                                  ],
+                                      // Future: Add customisation options and buttons here
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
-                          )
+                              ],
+                            )
                           : Column(
-                            children: [
-                              Center(
-                                child: ProductImageSelector(
-                                  images: images,
-                                  selectedImage: selectedImage,
-                                  onImageSelected: (i) => setState(() => selectedImage = i),
+                              children: [
+                                Center(
+                                  child: ProductImageSelector(
+                                    images: images,
+                                    selectedImage: selectedImage,
+                                    onImageSelected: (i) =>
+                                        setState(() => selectedImage = i),
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 24),
-                              Text(
-                                product['price'] as String,
-                                style: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black87,
+                                const SizedBox(height: 24),
+                                Text(
+                                  product['price'] as String,
+                                  style: const TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black87,
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 16),
-                              Text(
-                                product['description'] as String,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.black87,
+                                const SizedBox(height: 16),
+                                Text(
+                                  product['description'] as String,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.black87,
+                                  ),
                                 ),
-                              ),
-                              // Future: Add customisation options and buttons here
-                            ],
-                          );
+                                // Future: Add customisation options and buttons here
+                              ],
+                            );
                     },
                   ),
                 ],
