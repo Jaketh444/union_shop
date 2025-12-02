@@ -17,9 +17,9 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
   final Map<String, dynamic> product = {
     'name': 'UPSU Water Bottle',
     'images': [
-      'https://via.placeholder.com/300?text=Main+Image',
-      'https://via.placeholder.com/300?text=Side+View',
-      'https://via.placeholder.com/300?text=Detail',
+      'assets/water_bottle_1.png',
+      'assets/water_bottle_2.png',
+      'assets/water_bottle_3.png',
     ],
     'price': '£8.00',
     'description':
