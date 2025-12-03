@@ -55,10 +55,10 @@
 ### README (5%)
 
 - [X] Delete the starter README
-- [ ] Create a detailed, well-structured, accurate README
-- [ ] Explain your app
+- [X] Create a detailed, well-structured, accurate README
+- [X] Explain your app
 - [ ] Document external services
-- [ ] Provide setup/run instructions
+- [X] Provide setup/run instructions
 - [ ] Include link to live hosted version (if applicable)
 
 ### Testing (6%)
@@ -74,21 +74,21 @@
 
 ## 7. Submission Requirements
 
-- [ ] Make your GitHub repository public
-- [ ] Verify it works in incognito mode
+- [X] Make your GitHub repository public
+- [X] Verify it works in incognito mode
 - [ ] Submit repository link on Moodle before the deadline
-- [ ] Ensure no commits are made after the deadline
+- [X] Ensure no commits are made after the deadline
 
 ## 8. Demo Preparation
 
-- [ ] Be ready for a 10-minute live demo in weeks 19–20
-- [ ] Able to clone your repo and run the project live
-- [ ] Prepared to show implemented features
-- [ ] Able to explain your code when asked
+- [X] Be ready for a 10-minute live demo in weeks 19–20
+- [X] Able to clone your repo and run the project live
+- [X] Prepared to show implemented features
+- [] Able to explain your code when asked
 
 ## 9. Project Structure
 
-- [ ] Expand beyond the starter files
-- [ ] Maintain a clean, organised project structure
+- [X] Expand beyond the starter files
+- [X] Maintain a clean, organised project structure
 - [ ] Keep code formatted, structured, and free of warnings/errors
-- [ ] Avoid duplication and ensure refactoring where needed
+- [X] Avoid duplication and ensure refactoring where needed

@@ -98,8 +98,8 @@ class _SingleProductPageState extends State<SingleProductPage> {
                       style: const TextStyle(fontSize: 16)),
                   const SizedBox(height: 16),
                   // Size selector
-                  Text('Size:',
-                      style: const TextStyle(fontWeight: FontWeight.bold)),
+                  const Text('Size:',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   Wrap(
                     spacing: 8,
                     children: sizes.map((size) {
@@ -112,8 +112,8 @@ class _SingleProductPageState extends State<SingleProductPage> {
                   ),
                   const SizedBox(height: 16),
                   // Color selector
-                  Text('Color:',
-                      style: const TextStyle(fontWeight: FontWeight.bold)),
+                  const Text('Color:',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   Wrap(
                     spacing: 8,
                     children: colors.map((color) {
