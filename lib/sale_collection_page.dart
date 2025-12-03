@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/footer.dart';
-import 'package:union_shop/pages/hoodie_page.dart';
 
 class SaleCollectionPage extends StatelessWidget {
   const SaleCollectionPage({super.key});
@@ -88,7 +87,8 @@ class SaleCollectionPage extends StatelessWidget {
                               ],
                             ),
                             onTap: () {
-                              if (product['name'] == 'Portsmouth Hoodie (Sale)') {
+                              if (product['name'] ==
+                                  'Portsmouth Hoodie (Sale)') {
                                 Navigator.pushNamed(context, '/hoodie');
                               }
                               // TODO: Add navigation for other sale products
