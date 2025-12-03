@@ -4,8 +4,6 @@ import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/footer.dart';
 import 'package:union_shop/collections_page.dart';
-import 'package:union_shop/water_bottle_product_page.dart';
-import 'package:union_shop/hoodie_product_page.dart';
 import 'package:union_shop/auth_page.dart';
 
 void main() {
@@ -31,9 +29,8 @@ class UnionShopApp extends StatelessWidget {
       routes: {
         '/about': (context) => const AboutPage(),
         '/collections': (context) => const CollectionsPage(),
-        '/waterbottle': (context) => const WaterBottleProductPage(),
-        '/hoodie': (context) => const HoodieProductPage(),
         '/auth': (context) => const AuthPage(),
+
       },
     );
   }
