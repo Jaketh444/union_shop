@@ -20,24 +20,25 @@ class Product {
   });
 
   Map<String, dynamic> toMap() => {
-    'title': title,
-    'image': image,
-    'images': images,
-    'sizes': sizes,
-    'colors': colors,
-    'description': description,
-    'categories': categories,
-    'price': price,
-  };
+        'title': title,
+        'image': image,
+        'images': images,
+        'sizes': sizes,
+        'colors': colors,
+        'description': description,
+        'categories': categories,
+        'price': price,
+      };
 
   factory Product.fromMap(Map<String, dynamic> map) => Product(
-    title: map['title'],
-    image: map['image'],
-    images: (map['images'] as List?)?.map((e) => e as String).toList(),
-    sizes: (map['sizes'] as List?)?.map((e) => e as String).toList(),
-    colors: (map['colors'] as List?)?.map((e) => e as String).toList(),
-    description: map['description'],
-    categories: (map['categories'] as List).map((e) => e as String).toList(),
-    price: (map['price'] as num).toDouble(),
-  );
+        title: map['title'],
+        image: map['image'],
+        images: (map['images'] as List?)?.map((e) => e as String).toList(),
+        sizes: (map['sizes'] as List?)?.map((e) => e as String).toList(),
+        colors: (map['colors'] as List?)?.map((e) => e as String).toList(),
+        description: map['description'],
+        categories:
+            (map['categories'] as List).map((e) => e as String).toList(),
+        price: (map['price'] as num).toDouble(),
+      );
 }
