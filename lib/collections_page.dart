@@ -37,12 +37,12 @@ class CollectionsPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      body: Column(
-        children: [
-          const UnionShopHeader(),
-          UnionShopNavBar(context, selectedIndex: 3),
-          Expanded(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const UnionShopHeader(),
+            UnionShopNavBar(context, selectedIndex: 3),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -53,6 +53,8 @@ class CollectionsPage extends StatelessWidget {
                   childAspectRatio: 1.6,
                 ),
                 itemCount: collections.length,
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   final collection = collections[index];
                   return CollectionBox(
@@ -67,9 +69,9 @@ class CollectionsPage extends StatelessWidget {
                 },
               ),
             ),
-          ),
-          const UnionShopFooter(),
-        ],
+            const UnionShopFooter(),
+          ],
+        ),
       ),
     );
   }
