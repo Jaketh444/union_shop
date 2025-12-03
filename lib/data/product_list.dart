@@ -4,7 +4,7 @@ final List<Product> hoodiesProducts = [
   Product(
     title: 'Classic Hoodie',
     image: 'assets/hoodie_1.png',
-    categories: ['Hoodies'],
+    categories: ['Hoodies', 'Sale'],
     description: 'A classic university hoodie.',
     price: 25.00,
   ),
@@ -56,7 +56,7 @@ final List<Product> shirtsProducts = [
   Product(
     title: 'Graphic Tee',
     image: 'assets/shirt4.png',
-    categories: ['Shirts'],
+    categories: ['Shirts', 'Sale'],
     description: 'T-shirt with a fun graphic.',
     price: 16.00,
   ),
@@ -66,7 +66,7 @@ final List<Product> accessoriesProducts = [
   Product(
     title: 'Portsmouth Lanyard',
     image: 'assets/lanyard.png',
-    categories: ['Accessories'],
+    categories: ['Accessories', 'Sale'],
     description: 'University branded lanyard.',
     price: 3.00,
   ),
@@ -97,7 +97,7 @@ final List<Product> drinkwareProducts = [
   Product(
     title: 'UPSU Water Bottle',
     image: 'assets/water_bottle_1.png',
-    categories: ['Drinkware'],
+    categories: ['Drinkware', 'Sale'],
     description: 'Reusable water bottle.',
     price: 8.00,
   ),
@@ -138,29 +138,5 @@ final List<Product> bagsProducts = [
     categories: ['Bags'],
     description: 'Perfect for sports kit.',
     price: 12.00,
-  ),
-];
-
-final List<Product> saleProducts = [
-  Product(
-    title: 'Sale Hoodie',
-    image: 'assets/hoodie_sale.png',
-    categories: ['Hoodies', 'Sale'],
-    description: 'Discounted university hoodie.',
-    price: 18.00,
-  ),
-  Product(
-    title: 'Sale Shirt',
-    image: 'assets/shirt_sale.png',
-    categories: ['Shirts', 'Sale'],
-    description: 'Discounted shirt.',
-    price: 10.00,
-  ),
-  Product(
-    title: 'Sale Mug',
-    image: 'assets/mug_sale.png',
-    categories: ['Drinkware', 'Sale'],
-    description: 'Discounted mug.',
-    price: 4.00,
   ),
 ];

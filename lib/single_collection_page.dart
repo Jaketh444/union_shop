@@ -30,7 +30,20 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
         return hoodiesProducts;
       case 'Shirts':
         return shirtsProducts;
-      // Add more cases for other collections
+      case 'Accessories':
+        return accessoriesProducts;
+      case 'Drinkware':
+        return drinkwareProducts;
+      case 'Bags':
+        return bagsProducts;
+      case 'Sale':
+        return [
+          ...hoodiesProducts,
+          ...shirtsProducts,
+          ...accessoriesProducts,
+          ...drinkwareProducts,
+          ...bagsProducts,
+        ].where((p) => p.categories.contains('Sale')).toList();
       default:
         return [];
     }
@@ -40,14 +53,14 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
     final products = getProductsForCollection();
     return [
       'All',
-      ...{for (var p in products) p.category}
+      ...{for (var p in products) p.categories}.expand((c) => c)
     ];
   }
 
   List<Product> get filteredProducts {
     final products = getProductsForCollection();
     if (filter == 'All') return products;
-    return products.where((p) => p.category == filter).toList();
+    return products.where((p) => p.categories.contains(filter)).toList();
   }
 
   List<Product> get sortedProducts {
@@ -128,7 +141,7 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
               ),
               itemBuilder: (context, index) {
                 final product = paginatedProducts[index];
-                return ProductBox(product: product);
+                return ProductBox(product: product, isSale: true);
               },
             ),
             Row(
