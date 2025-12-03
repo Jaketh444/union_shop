@@ -8,6 +8,7 @@ import 'package:union_shop/accessories_collection_page.dart';
 import 'package:union_shop/water_bottle_product_page.dart';
 import 'package:union_shop/hoodie_product_page.dart';
 import 'package:union_shop/sale_collection_page.dart';
+import 'package:union_shop/auth_page.dart';
 
 void main() {
   runApp(const UnionShopApp());
@@ -37,6 +38,7 @@ class UnionShopApp extends StatelessWidget {
         '/waterbottle': (context) => const WaterBottleProductPage(),
         '/hoodie': (context) => const HoodieProductPage(),
         '/sale': (context) => const SaleCollectionPage(),
+        '/auth': (context) => const AuthPage(),
       },
     );
   }
