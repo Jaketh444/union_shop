@@ -51,49 +51,89 @@ class SaleCollectionPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   Expanded(
-                    child: ListView.builder(
-                      itemCount: products.length,
-                      itemBuilder: (context, index) {
-                        final product = products[index];
-                        return Card(
-                          margin: const EdgeInsets.symmetric(vertical: 12),
-                          child: ListTile(
-                            leading: Image.network(
-                              product['image']!,
-                              width: 64,
-                              height: 64,
-                              fit: BoxFit.cover,
-                            ),
-                            title: Text(product['name']!),
-                            subtitle: Row(
-                              children: [
-                                Text(
-                                  product['price']!,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.red,
-                                  ),
-                                ),
-                                const SizedBox(width: 8),
-                                Text(
-                                  product['oldPrice']!,
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.grey,
-                                    decoration: TextDecoration.lineThrough,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            onTap: () {
-                              if (product['name'] ==
-                                  'Portsmouth Hoodie (Sale)') {
-                                Navigator.pushNamed(context, '/hoodie');
-                              }
-                              // TODO: Add navigation for other sale products
-                            },
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final crossAxisCount = constraints.maxWidth < 600 ? 1 : 2;
+                        return GridView.builder(
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: crossAxisCount,
+                            crossAxisSpacing: 24,
+                            mainAxisSpacing: 24,
+                            childAspectRatio: 1.6,
                           ),
+                          itemCount: products.length,
+                          itemBuilder: (context, index) {
+                            final product = products[index];
+                            return Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              clipBehavior: Clip.antiAlias,
+                              child: InkWell(
+                                onTap: () {
+                                  if (product['name'] == 'Portsmouth Hoodie (Sale)') {
+                                    Navigator.pushNamed(context, '/hoodie');
+                                  }
+                                  // TODO: Add navigation for other sale products
+                                },
+                                child: Stack(
+                                  children: [
+                                    Positioned.fill(
+                                      child: product['image']!.startsWith('assets/')
+                                          ? Image.asset(
+                                              product['image']!,
+                                              fit: BoxFit.cover,
+                                            )
+                                          : Image.network(
+                                              product['image']!,
+                                              fit: BoxFit.cover,
+                                            ),
+                                    ),
+                                    Container(
+                                      alignment: Alignment.bottomLeft,
+                                      padding: const EdgeInsets.all(12),
+                                      color: Colors.black.withOpacity(0.45),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            product['name']!,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                product['price']!,
+                                                style: const TextStyle(
+                                                  color: Colors.red,
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              const SizedBox(width: 8),
+                                              Text(
+                                                product['oldPrice']!,
+                                                style: const TextStyle(
+                                                  color: Colors.grey,
+                                                  fontSize: 14,
+                                                  decoration: TextDecoration.lineThrough,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
                         );
                       },
                     ),
