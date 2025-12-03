@@ -17,10 +17,10 @@ class _SingleProductPageState extends State<SingleProductPage> {
   int selectedImageIndex = 0;
   String? selectedSize;
   String? selectedColor;
+  int quantity = 1;
 
   @override
   Widget build(BuildContext context) {
-    // Example: product.images and product.sizes/colors should be added to Product model for full dynamic support
     final images = widget.product.images ?? [widget.product.image];
     final sizes = widget.product.sizes ?? ['S', 'M', 'L', 'XL'];
     final colors = widget.product.colors ?? ['Black', 'White', 'Purple'];
@@ -118,6 +118,25 @@ class _SingleProductPageState extends State<SingleProductPage> {
                         fontSize: 22,
                         color: Colors.deepPurple,
                         fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 24),
+                  // Quantity selector
+                  Row(
+                    children: [
+                      const Text('Quantity:',
+                          style: TextStyle(fontWeight: FontWeight.bold)),
+                      IconButton(
+                        icon: const Icon(Icons.remove),
+                        onPressed: quantity > 1
+                            ? () => setState(() => quantity--)
+                            : null,
+                      ),
+                      Text('$quantity', style: const TextStyle(fontSize: 18)),
+                      IconButton(
+                        icon: const Icon(Icons.add),
+                        onPressed: () => setState(() => quantity++),
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 24),
                   ElevatedButton(
