@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:union_shop/about_page.dart';
 import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/header.dart';
@@ -8,6 +10,19 @@ import 'package:union_shop/auth_page.dart';
 import 'package:union_shop/models/cart_item.dart';
 import 'package:union_shop/cart_page.dart'; // <-- Import the CartPage
 
+Future<void> saveCart(List<CartItem> cartItems) async {
+  final prefs = await SharedPreferences.getInstance();
+  final cartJson = jsonEncode(cartItems.map((e) => e.toMap()).toList());
+  await prefs.setString('cart', cartJson);
+}
+
+Future<List<CartItem>> loadCart() async {
+  final prefs = await SharedPreferences.getInstance();
+  final cartJson = prefs.getString('cart');
+  if (cartJson == null) return [];
+  final List decoded = jsonDecode(cartJson);
+  return decoded.map((e) => CartItem.fromMap(e)).toList();
+}
 
 void main() {
   runApp(const UnionShopApp());
