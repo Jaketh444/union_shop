@@ -90,6 +90,13 @@ class _AuthPageState extends State<AuthPage> {
                 },
                 child: Text(showSignUp ? 'Back to Sign In' : 'Create account'),
               ),
+              const SizedBox(height: 8),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/');
+                },
+                child: const Text('Back to Homepage'),
+              ),
             ],
           ),
         ),
