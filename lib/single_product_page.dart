@@ -28,6 +28,17 @@ class _SingleProductPageState extends State<SingleProductPage> {
     final colors = widget.product.colors ?? ['Black', 'White', 'Purple'];
 
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Returns to previous page (single collection)
+          },
+        ),
+        title: const Text('Product Details'),
+        backgroundColor: const Color(0xFF4d2963),
+        foregroundColor: Colors.white,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -166,6 +177,20 @@ class _SingleProductPageState extends State<SingleProductPage> {
                       );
                     },
                     child: const Text('Add to Cart'),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: ElevatedButton.icon(
+                      icon: const Icon(Icons.arrow_back),
+                      label: const Text('Back to Collection'),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF4d2963),
+                        foregroundColor: Colors.white,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context); // Returns to single collection page
+                      },
+                    ),
                   ),
                 ],
               ),
