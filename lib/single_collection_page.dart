@@ -83,6 +83,8 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
 
   @override
   Widget build(BuildContext context) {
+    final isSaleCollection = widget.collectionTitle == 'Sale';
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -141,7 +143,10 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
               ),
               itemBuilder: (context, index) {
                 final product = paginatedProducts[index];
-                return ProductBox(product: product, isSale: true);
+                return ProductBox(
+                  product: product,
+                  isSale: isSaleCollection,
+                );
               },
             ),
             Row(
