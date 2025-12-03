@@ -32,7 +32,8 @@ class _CartPageState extends State<CartPage> {
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Size: ${item.selectedSize ?? "-"} | Color: ${item.selectedColor ?? "-"}'),
+                            Text(
+                                'Size: ${item.selectedSize ?? "-"} | Color: ${item.selectedColor ?? "-"}'),
                             const SizedBox(height: 4),
                             Row(
                               children: [
@@ -46,7 +47,8 @@ class _CartPageState extends State<CartPage> {
                                         }
                                       : null,
                                 ),
-                                Text('${item.quantity}', style: const TextStyle(fontSize: 16)),
+                                Text('${item.quantity}',
+                                    style: const TextStyle(fontSize: 16)),
                                 IconButton(
                                   icon: const Icon(Icons.add),
                                   onPressed: () {
