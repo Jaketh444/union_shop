@@ -109,6 +109,7 @@ class _CartPageState extends State<CartPage> {
                             setState(() {
                               cartItems.removeAt(index);
                             });
+                            saveCart(cartItems);
                           },
                         ),
                       );
@@ -148,6 +149,7 @@ class _CartPageState extends State<CartPage> {
 
                           // If all items are valid, place the order
                           cartItems.clear();
+                          saveCart(cartItems);
                           showDialog(
                             context: context,
                             builder: (context) => AlertDialog(
