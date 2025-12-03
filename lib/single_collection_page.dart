@@ -149,7 +149,8 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SingleProductPage(product: product),
+                        builder: (context) =>
+                            SingleProductPage(product: product),
                       ),
                     );
                   },
