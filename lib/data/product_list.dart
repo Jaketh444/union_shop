@@ -72,11 +72,7 @@ final List<Product> capsProducts = [
   Product(
     title: 'Union Cap',
     image: 'assets/caps.png',
-    images: [
-      'assets/caps.png',
-      'assets/caps_alt1.png',
-      'assets/caps_alt2.png'
-    ],
+    images: ['assets/caps.png', 'assets/caps_alt1.png', 'assets/caps_alt2.png'],
     sizes: [],
     colors: ['Black', 'Purple'],
     categories: ['Caps'],
@@ -208,11 +204,7 @@ final List<Product> pinsProducts = [
   Product(
     title: 'Union Pin',
     image: 'assets/pins.png',
-    images: [
-      'assets/pins.png',
-      'assets/pins_alt1.png',
-      'assets/pins_alt2.png'
-    ],
+    images: ['assets/pins.png', 'assets/pins_alt1.png', 'assets/pins_alt2.png'],
     sizes: [],
     colors: ['Gold', 'Silver'],
     categories: ['Pins'],
@@ -293,11 +285,7 @@ final List<Product> mugsProducts = [
   Product(
     title: 'Union Mug',
     image: 'assets/mugs.png',
-    images: [
-      'assets/mugs.png',
-      'assets/mugs_alt1.png',
-      'assets/mugs_alt2.png'
-    ],
+    images: ['assets/mugs.png', 'assets/mugs_alt1.png', 'assets/mugs_alt2.png'],
     sizes: [],
     colors: ['White'],
     categories: ['Mugs'],
