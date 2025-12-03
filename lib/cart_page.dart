@@ -27,7 +27,8 @@ class _CartPageState extends State<CartPage> {
                     itemBuilder: (context, index) {
                       final item = cartItems[index];
                       return ListTile(
-                        leading: Image.asset(item.product.image, width: 48, height: 48),
+                        leading: Image.asset(item.product.image,
+                            width: 48, height: 48),
                         title: Text(item.product.title),
                         subtitle: Text(
                           'Size: ${item.selectedSize ?? "-"} | Color: ${item.selectedColor ?? "-"}\n£${item.product.price.toStringAsFixed(2)} x ${item.quantity}',
@@ -49,7 +50,8 @@ class _CartPageState extends State<CartPage> {
                   child: Column(
                     children: [
                       Text('Total: £${totalPrice.toStringAsFixed(2)}',
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
                       const SizedBox(height: 12),
                       ElevatedButton(
                         onPressed: () {
