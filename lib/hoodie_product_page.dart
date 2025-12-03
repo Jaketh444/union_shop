@@ -21,9 +21,9 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
   final Map<String, dynamic> product = {
     'name': 'Portsmouth Hoodie (Sale)',
     'images': [
-      'https://via.placeholder.com/300?text=Front',
-      'https://via.placeholder.com/300?text=Back',
-      'https://via.placeholder.com/300?text=Detail',
+      'assets/hoodie_1.png',
+      'assets/hoodie_2.png',
+      'assets/hoodie_3.png',
     ],
     'price': '£18.00',
     'oldPrice': '£25.00',

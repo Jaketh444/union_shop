@@ -12,7 +12,7 @@ class SaleCollectionPage extends StatelessWidget {
     final products = [
       {
         'name': 'Portsmouth Hoodie (Sale)',
-        'image': 'https://via.placeholder.com/300',
+        'image': 'assets/hoodie_1.png',
         'price': '£18.00',
         'oldPrice': '£25.00',
       },
