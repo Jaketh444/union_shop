@@ -3,7 +3,7 @@ import '../models/product.dart';
 final List<Product> hoodiesProducts = [
   Product(
     title: 'Classic Hoodie',
-    image: 'assets/hoodie1.png',
+    image: 'assets/hoodie_1.png',
     category: 'Hoodies',
     description: 'A classic university hoodie.',
     price: 25.00,
@@ -144,7 +144,7 @@ final List<Product> bagsProducts = [
 final List<Product> saleProducts = [
   Product(
     title: 'Sale Hoodie',
-    image: 'assets/hoodie_sale.png',
+    image: 'assets/hoodie_1.png',
     category: 'Hoodies',
     description: 'Discounted hoodie.',
     price: 18.00,

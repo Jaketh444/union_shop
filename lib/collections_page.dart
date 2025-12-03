@@ -9,7 +9,7 @@ import 'package:union_shop/single_collection_page.dart';
 final List<Collection> allCollections = [
   Collection(
       title: 'Hoodies',
-      image: 'assets/hoodies.png',
+      image: 'assets/hoodie_1.png',
       route: '/hoodies',
       category: 'Apparel'),
   Collection(
@@ -79,7 +79,7 @@ final List<Collection> allCollections = [
       category: 'Accessories'),
   Collection(
       title: 'Water Bottles',
-      image: 'assets/water_bottles.png',
+      image: 'assets/water_bottle_1.png',
       route: '/waterbottles',
       category: 'Drinkware'),
   Collection(
