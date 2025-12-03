@@ -59,6 +59,10 @@ class _CartPageState extends State<CartPage> {
                                 ),
                               ],
                             ),
+                            Text(
+                              'Subtotal: £${(item.product.price * item.quantity).toStringAsFixed(2)}',
+                              style: const TextStyle(fontWeight: FontWeight.bold),
+                            ),
                           ],
                         ),
                         trailing: IconButton(
