@@ -27,7 +27,8 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
     ],
     'price': '£18.00',
     'oldPrice': '£25.00',
-    'description': 'Classic Portsmouth hoodie, now on sale! Soft, comfortable, and perfect for campus life.',
+    'description':
+        'Classic Portsmouth hoodie, now on sale! Soft, comfortable, and perfect for campus life.',
     'sizes': ['S', 'M', 'L', 'XL'],
     'colours': ['Black', 'Grey', 'Navy'],
   };
@@ -68,14 +69,16 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
                                   child: ProductImageSelector(
                                     images: images,
                                     selectedImage: selectedImage,
-                                    onImageSelected: (i) => setState(() => selectedImage = i),
+                                    onImageSelected: (i) =>
+                                        setState(() => selectedImage = i),
                                   ),
                                 ),
                                 const SizedBox(width: 32),
                                 Expanded(
                                   flex: 1,
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Row(
                                         children: [
@@ -93,7 +96,8 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
                                             style: const TextStyle(
                                               fontSize: 18,
                                               color: Colors.grey,
-                                              decoration: TextDecoration.lineThrough,
+                                              decoration:
+                                                  TextDecoration.lineThrough,
                                             ),
                                           ),
                                         ],
@@ -110,18 +114,28 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
                                       ProductCustomisation(
                                         sizes: product['sizes'] as List<String>,
                                         selectedSize: selectedSize,
-                                        onSizeChanged: (value) => setState(() => selectedSize = value ?? selectedSize),
-                                        colours: product['colours'] as List<String>,
+                                        onSizeChanged: (value) => setState(() =>
+                                            selectedSize =
+                                                value ?? selectedSize),
+                                        colours:
+                                            product['colours'] as List<String>,
                                         selectedColour: selectedColour,
-                                        onColourChanged: (value) => setState(() => selectedColour = value ?? selectedColour),
+                                        onColourChanged: (value) => setState(
+                                            () => selectedColour =
+                                                value ?? selectedColour),
                                         quantity: quantity,
-                                        onIncrease: () => setState(() => quantity++),
+                                        onIncrease: () =>
+                                            setState(() => quantity++),
                                         onDecrease: () {
-                                          if (quantity > 1) setState(() => quantity--);
+                                          if (quantity > 1)
+                                            setState(() => quantity--);
                                         },
                                         onAddToCart: () {
-                                          ScaffoldMessenger.of(context).showSnackBar(
-                                            const SnackBar(content: Text('Added to cart!')),
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                                content:
+                                                    Text('Added to cart!')),
                                           );
                                         },
                                       ),
@@ -136,7 +150,8 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
                                   child: ProductImageSelector(
                                     images: images,
                                     selectedImage: selectedImage,
-                                    onImageSelected: (i) => setState(() => selectedImage = i),
+                                    onImageSelected: (i) =>
+                                        setState(() => selectedImage = i),
                                   ),
                                 ),
                                 const SizedBox(height: 24),
@@ -174,18 +189,22 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
                                 ProductCustomisation(
                                   sizes: product['sizes'] as List<String>,
                                   selectedSize: selectedSize,
-                                  onSizeChanged: (value) => setState(() => selectedSize = value ?? selectedSize),
+                                  onSizeChanged: (value) => setState(() =>
+                                      selectedSize = value ?? selectedSize),
                                   colours: product['colours'] as List<String>,
                                   selectedColour: selectedColour,
-                                  onColourChanged: (value) => setState(() => selectedColour = value ?? selectedColour),
+                                  onColourChanged: (value) => setState(() =>
+                                      selectedColour = value ?? selectedColour),
                                   quantity: quantity,
                                   onIncrease: () => setState(() => quantity++),
                                   onDecrease: () {
-                                    if (quantity > 1) setState(() => quantity--);
+                                    if (quantity > 1)
+                                      setState(() => quantity--);
                                   },
                                   onAddToCart: () {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(content: Text('Added to cart!')),
+                                      const SnackBar(
+                                          content: Text('Added to cart!')),
                                     );
                                   },
                                 ),
