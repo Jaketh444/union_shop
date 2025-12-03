@@ -37,15 +37,15 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
     final List<String> images = List<String>.from(product['images'] as List);
 
     return Scaffold(
-      body: Column(
-        children: [
-          const UnionShopHeader(),
-          UnionShopNavBar(
-            context,
-            selectedIndex: 0,
-          ),
-          Expanded(
-            child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const UnionShopHeader(),
+            UnionShopNavBar(
+              context,
+              selectedIndex: 0,
+            ),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,9 +195,9 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                 ],
               ),
             ),
-          ),
-          const UnionShopFooter(),
-        ],
+            const UnionShopFooter(),
+          ],
+        ),
       ),
     );
   }
