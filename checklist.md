@@ -30,7 +30,7 @@
 
 ## 4. Application Development — Intermediate Features (35% of 30% app marks)
 
-- [ ] Dynamic collections page (uses models/services + functional filters/sorting/pagination)
+- [X] Dynamic collections page (uses models/services + functional filters/sorting/pagination)
 - [ ] Dynamic single collection page (functional widgets)
 - [ ] Functional product pages (dropdowns & counters functional)
 - [ ] Shopping cart (can add/view/place order — no real payment)
