@@ -76,6 +76,9 @@ List<Collection> get filteredCollections {
   return filtered;
 }
 
+int currentPage = 1;
+const int itemsPerPage = 8; // Show 8 collections per page
+
 class CollectionsPage extends StatefulWidget {
   const CollectionsPage({super.key});
 
@@ -107,6 +110,15 @@ class _CollectionsPageState extends State<CollectionsPage> {
     }
     return filtered;
   }
+
+  List<Collection> get paginatedCollections {
+    final start = (currentPage - 1) * itemsPerPage;
+    final end = (start + itemsPerPage).clamp(0, filteredCollections.length);
+    return filteredCollections.sublist(start, end);
+  }
+
+  int get totalPages =>
+      (filteredCollections.length / itemsPerPage).ceil();
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +170,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
                   return GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: filteredCollections.length,
+                    itemCount: paginatedCollections.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: crossAxisCount,
                       crossAxisSpacing: 16,
@@ -166,7 +178,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
                       childAspectRatio: 1.2,
                     ),
                     itemBuilder: (context, index) {
-                      final collection = filteredCollections[index];
+                      final collection = paginatedCollections[index];
                       return CollectionBox(
                         title: collection.title,
                         image: collection.image,
@@ -178,6 +190,24 @@ class _CollectionsPageState extends State<CollectionsPage> {
                   );
                 },
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.chevron_left),
+                  onPressed: currentPage > 1
+                      ? () => setState(() => currentPage--)
+                      : null,
+                ),
+                Text('Page $currentPage of $totalPages'),
+                IconButton(
+                  icon: const Icon(Icons.chevron_right),
+                  onPressed: currentPage < totalPages
+                      ? () => setState(() => currentPage++)
+                      : null,
+                ),
+              ],
             ),
             const UnionShopFooter(),
           ],
