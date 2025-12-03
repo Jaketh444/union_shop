@@ -31,12 +31,12 @@ class SaleCollectionPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      body: Column(
-        children: [
-          const UnionShopHeader(),
-          UnionShopNavBar(context, selectedIndex: 2),
-          Expanded(
-            child: Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const UnionShopHeader(),
+            UnionShopNavBar(context, selectedIndex: 2),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,106 +50,104 @@ class SaleCollectionPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  Expanded(
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        final crossAxisCount =
-                            constraints.maxWidth < 600 ? 1 : 2;
-                        return GridView.builder(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: crossAxisCount,
-                            crossAxisSpacing: 24,
-                            mainAxisSpacing: 24,
-                            childAspectRatio: 1.6,
-                          ),
-                          itemCount: products.length,
-                          itemBuilder: (context, index) {
-                            final product = products[index];
-                            return Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              clipBehavior: Clip.antiAlias,
-                              child: InkWell(
-                                onTap: () {
-                                  if (product['name'] ==
-                                      'Portsmouth Hoodie (Sale)') {
-                                    Navigator.pushNamed(context, '/hoodie');
-                                  }
-                                  // TODO: Add navigation for other sale products
-                                },
-                                child: Stack(
-                                  children: [
-                                    Positioned.fill(
-                                      child: product['image']!
-                                              .startsWith('assets/')
-                                          ? Image.asset(
-                                              product['image']!,
-                                              fit: BoxFit.cover,
-                                            )
-                                          : Image.network(
-                                              product['image']!,
-                                              fit: BoxFit.cover,
-                                            ),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.bottomLeft,
-                                      padding: const EdgeInsets.all(12),
-                                      color: Colors.black.withOpacity(0.45),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            product['name']!,
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          Row(
-                                            children: [
-                                              Text(
-                                                product['price']!,
-                                                style: const TextStyle(
-                                                  color: Colors.red,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      final crossAxisCount = constraints.maxWidth < 600 ? 1 : 2;
+                      return GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: crossAxisCount,
+                          crossAxisSpacing: 24,
+                          mainAxisSpacing: 24,
+                          childAspectRatio: 1.6,
+                        ),
+                        itemCount: products.length,
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          final product = products[index];
+                          return Card(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            clipBehavior: Clip.antiAlias,
+                            child: InkWell(
+                              onTap: () {
+                                if (product['name'] ==
+                                    'Portsmouth Hoodie (Sale)') {
+                                  Navigator.pushNamed(context, '/hoodie');
+                                }
+                                // TODO: Add navigation for other sale products
+                              },
+                              child: Stack(
+                                children: [
+                                  Positioned.fill(
+                                    child:
+                                        product['image']!.startsWith('assets/')
+                                            ? Image.asset(
+                                                product['image']!,
+                                                fit: BoxFit.cover,
+                                              )
+                                            : Image.network(
+                                                product['image']!,
+                                                fit: BoxFit.cover,
                                               ),
-                                              const SizedBox(width: 8),
-                                              Text(
-                                                product['oldPrice']!,
-                                                style: const TextStyle(
-                                                  color: Colors.grey,
-                                                  fontSize: 14,
-                                                  decoration: TextDecoration
-                                                      .lineThrough,
-                                                ),
-                                              ),
-                                            ],
+                                  ),
+                                  Container(
+                                    alignment: Alignment.bottomLeft,
+                                    padding: const EdgeInsets.all(12),
+                                    color: Colors.black.withOpacity(0.45),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          product['name']!,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Text(
+                                              product['price']!,
+                                              style: const TextStyle(
+                                                color: Colors.red,
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 8),
+                                            Text(
+                                              product['oldPrice']!,
+                                              style: const TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 14,
+                                                decoration:
+                                                    TextDecoration.lineThrough,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            );
-                          },
-                        );
-                      },
-                    ),
+                            ),
+                          );
+                        },
+                      );
+                    },
                   ),
                 ],
               ),
             ),
-          ),
-          const UnionShopFooter(),
-        ],
+            const UnionShopFooter(),
+          ],
+        ),
       ),
     );
   }
