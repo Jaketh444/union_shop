@@ -55,7 +55,21 @@ class _CartPageState extends State<CartPage> {
                       const SizedBox(height: 12),
                       ElevatedButton(
                         onPressed: () {
-                          // Step 4: Place order logic will go here
+                          cartItems.clear();
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text('Order Placed'),
+                              content: const Text('Your order has been placed!'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: const Text('OK'),
+                                ),
+                              ],
+                            ),
+                          );
+                          setState(() {});
                         },
                         child: const Text('Place Order'),
                       ),
