@@ -50,23 +50,34 @@ class CollectionsPage extends StatelessWidget {
             UnionShopNavBar(context, selectedIndex: 3),
             Padding(
               padding: const EdgeInsets.all(16),
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: collections.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 24,
-                  mainAxisSpacing: 24,
-                  childAspectRatio: 1.6,
-                ),
-                itemBuilder: (context, index) {
-                  final collection = collections[index];
-                  return CollectionBox(
-                    title: collection.title,
-                    image: collection.image,
-                    onTap: () {
-                      Navigator.pushNamed(context, collection.route);
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  int crossAxisCount = 4;
+                  double width = constraints.maxWidth;
+                  if (width < 600) {
+                    crossAxisCount = 2;
+                  } else if (width < 900) {
+                    crossAxisCount = 3;
+                  }
+                  return GridView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: collections.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: crossAxisCount,
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 16,
+                      childAspectRatio: 1.2,
+                    ),
+                    itemBuilder: (context, index) {
+                      final collection = collections[index];
+                      return CollectionBox(
+                        title: collection.title,
+                        image: collection.image,
+                        onTap: () {
+                          Navigator.pushNamed(context, collection.route);
+                        },
+                      );
                     },
                   );
                 },
