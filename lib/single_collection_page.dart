@@ -85,10 +85,11 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                       .map((f) => DropdownMenuItem(value: f, child: Text(f)))
                       .toList(),
                   onChanged: (value) {
-                    if (value != null) setState(() {
-                      filter = value;
-                      currentPage = 1;
-                    });
+                    if (value != null)
+                      setState(() {
+                        filter = value;
+                        currentPage = 1;
+                      });
                   },
                 ),
                 const SizedBox(width: 24),
@@ -99,10 +100,11 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                       .map((s) => DropdownMenuItem(value: s, child: Text(s)))
                       .toList(),
                   onChanged: (value) {
-                    if (value != null) setState(() {
-                      sort = value;
-                      currentPage = 1;
-                    });
+                    if (value != null)
+                      setState(() {
+                        sort = value;
+                        currentPage = 1;
+                      });
                   },
                 ),
               ],
