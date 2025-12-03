@@ -25,7 +25,7 @@
 - [X] Dummy collection page (products in one collection)
 - [X] Dummy product page (details; dropdowns don't need to function)
 - [X] Sale collection page
-- [ ] Authentication UI (login/signup screens — no backend needed)
+- [X] Authentication UI (login/signup screens — no backend needed)
 - [X] Static navbar with collapse on mobile
 
 ## 4. Application Development — Intermediate Features (35% of 30% app marks)
