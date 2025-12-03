@@ -127,12 +127,20 @@ class _CartPageState extends State<CartPage> {
                         onPressed: () {
                           // Validation: check all items have required size/color
                           for (final item in cartItems) {
-                            final hasSizes = item.product.sizes != null && item.product.sizes!.isNotEmpty;
-                            final hasColors = item.product.colors != null && item.product.colors!.isNotEmpty;
-                            if ((hasSizes && (item.selectedSize == null || item.selectedSize!.isEmpty)) ||
-                                (hasColors && (item.selectedColor == null || item.selectedColor!.isEmpty))) {
+                            final hasSizes = item.product.sizes != null &&
+                                item.product.sizes!.isNotEmpty;
+                            final hasColors = item.product.colors != null &&
+                                item.product.colors!.isNotEmpty;
+                            if ((hasSizes &&
+                                    (item.selectedSize == null ||
+                                        item.selectedSize!.isEmpty)) ||
+                                (hasColors &&
+                                    (item.selectedColor == null ||
+                                        item.selectedColor!.isEmpty))) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('Please ensure all items have a size and color selected.')),
+                                const SnackBar(
+                                    content: Text(
+                                        'Please ensure all items have a size and color selected.')),
                               );
                               return;
                             }
@@ -144,7 +152,8 @@ class _CartPageState extends State<CartPage> {
                             context: context,
                             builder: (context) => AlertDialog(
                               title: const Text('Order Placed'),
-                              content: const Text('Your order has been placed!'),
+                              content:
+                                  const Text('Your order has been placed!'),
                               actions: [
                                 TextButton(
                                   onPressed: () => Navigator.pop(context),
