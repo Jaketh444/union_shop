@@ -13,7 +13,7 @@ class AuthPage extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.black12,
                 blurRadius: 16,
@@ -33,15 +33,15 @@ class AuthPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              TextField(
-                decoration: const InputDecoration(
+              const TextField(
+                decoration: InputDecoration(
                   labelText: 'Email',
                   border: OutlineInputBorder(),
                 ),
               ),
               const SizedBox(height: 16),
-              TextField(
-                decoration: const InputDecoration(
+              const TextField(
+                decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(),
                 ),
