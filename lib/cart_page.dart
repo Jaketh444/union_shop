@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:union_shop/models/cart_item.dart';
 import 'package:union_shop/main.dart'; // for cartItems
 
 class CartPage extends StatefulWidget {
@@ -30,8 +29,35 @@ class _CartPageState extends State<CartPage> {
                         leading: Image.asset(item.product.image,
                             width: 48, height: 48),
                         title: Text(item.product.title),
-                        subtitle: Text(
-                          'Size: ${item.selectedSize ?? "-"} | Color: ${item.selectedColor ?? "-"}\n£${item.product.price.toStringAsFixed(2)} x ${item.quantity}',
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Size: ${item.selectedSize ?? "-"} | Color: ${item.selectedColor ?? "-"}'),
+                            const SizedBox(height: 4),
+                            Row(
+                              children: [
+                                IconButton(
+                                  icon: const Icon(Icons.remove),
+                                  onPressed: item.quantity > 1
+                                      ? () {
+                                          setState(() {
+                                            item.quantity--;
+                                          });
+                                        }
+                                      : null,
+                                ),
+                                Text('${item.quantity}', style: const TextStyle(fontSize: 16)),
+                                IconButton(
+                                  icon: const Icon(Icons.add),
+                                  onPressed: () {
+                                    setState(() {
+                                      item.quantity++;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                         trailing: IconButton(
                           icon: const Icon(Icons.delete),
