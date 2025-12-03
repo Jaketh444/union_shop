@@ -38,12 +38,12 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
     final List<String> images = List<String>.from(product['images'] as List);
 
     return Scaffold(
-      body: Column(
-        children: [
-          const UnionShopHeader(),
-          UnionShopNavBar(context, selectedIndex: 2),
-          Expanded(
-            child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const UnionShopHeader(),
+            UnionShopNavBar(context, selectedIndex: 2),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -217,9 +217,9 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
                 ],
               ),
             ),
-          ),
-          const UnionShopFooter(),
-        ],
+            const UnionShopFooter(),
+          ],
+        ),
       ),
     );
   }
