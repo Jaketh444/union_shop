@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/footer.dart';
+import 'package:union_shop/models/collection_box.dart';
 
 class AccessoriesCollectionPage extends StatelessWidget {
   const AccessoriesCollectionPage({super.key});
@@ -11,29 +12,29 @@ class AccessoriesCollectionPage extends StatelessWidget {
     // Dummy product data for Accessories collection
     final products = [
       {
-        'name': 'Portsmouth Keyring',
+        'title': 'Portsmouth Keyring',
         'image': 'https://via.placeholder.com/300',
-        'price': '£3.00',
+        'route': '/keyring',
       },
       {
-        'name': 'University Tote Bag',
+        'title': 'University Tote Bag',
         'image': 'https://via.placeholder.com/300',
-        'price': '£6.00',
+        'route': '/totebag',
       },
       {
-        'name': 'UPSU Water Bottle',
+        'title': 'UPSU Water Bottle',
         'image': 'assets/water_bottle_1.png',
-        'price': '£8.00',
+        'route': '/waterbottle',
       },
       {
-        'name': 'Portsmouth Lanyard',
+        'title': 'Portsmouth Lanyard',
         'image': 'https://via.placeholder.com/300',
-        'price': '£2.50',
+        'route': '/lanyard',
       },
       {
-        'name': 'Student Card Holder',
+        'title': 'Student Card Holder',
         'image': 'https://via.placeholder.com/300',
-        'price': '£4.00',
+        'route': '/cardholder',
       },
     ];
 
@@ -73,63 +74,15 @@ class AccessoriesCollectionPage extends StatelessWidget {
                           itemCount: products.length,
                           itemBuilder: (context, index) {
                             final product = products[index];
-                            return Card(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              clipBehavior: Clip.antiAlias,
-                              child: InkWell(
-                                onTap: product['name'] == 'UPSU Water Bottle'
-                                    ? () {
-                                        Navigator.pushNamed(
-                                            context, '/waterbottle');
-                                      }
-                                    : null,
-                                child: Stack(
-                                  children: [
-                                    Positioned.fill(
-                                      child: product['image']!
-                                              .startsWith('assets/')
-                                          ? Image.asset(
-                                              product['image']!,
-                                              fit: BoxFit.cover,
-                                            )
-                                          : Image.network(
-                                              product['image']!,
-                                              fit: BoxFit.cover,
-                                            ),
-                                    ),
-                                    Container(
-                                      alignment: Alignment.bottomLeft,
-                                      padding: const EdgeInsets.all(12),
-                                      color: Colors.black.withOpacity(0.45),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            product['name']!,
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          Text(
-                                            product['price']!,
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                            return CollectionBox(
+                              title: product['title'] ?? '',
+                              image: product['image'] ?? '',
+                              onTap: () {
+                                if (product['route'] != null) {
+                                  Navigator.pushNamed(
+                                      context, product['route']!);
+                                }
+                              },
                             );
                           },
                         );
