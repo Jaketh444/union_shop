@@ -31,9 +31,9 @@ class _AuthPageState extends State<AuthPage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
-                'Sign in to Union Shop',
-                style: TextStyle(
+              Text(
+                showSignUp ? 'Create your account' : 'Sign in to Union Shop',
+                style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF4d2963),
@@ -54,6 +54,16 @@ class _AuthPageState extends State<AuthPage> {
                 ),
                 obscureText: true,
               ),
+              if (showSignUp) ... [
+                const SizedBox(height: 16),
+                const TextField(
+                  decoration: InputDecoration(
+                    labelText: 'Confirm Password',
+                    border: OutlineInputBorder(),
+                  ),
+                  obscureText: true,
+                ),
+              ],
               const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
@@ -64,18 +74,21 @@ class _AuthPageState extends State<AuthPage> {
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                   ),
-                  child: const Text('Sign In'),
+                  child: Text(showSignUp ? 'Sign Up' : 'Sign In'),
                 ),
               ),
               const SizedBox(height: 12),
-              TextButton(
-                onPressed: () {},
-                child: const Text('Forgot password?'),
-              ),
+              if (!showSignUp)
+                TextButton(
+                  onPressed: () {},
+                  child: const Text('Forgot password?'),
+                ),
               const Divider(height: 32),
               TextButton(
-                onPressed: () {},
-                child: const Text('Create account'),
+                onPressed: () {
+                  setState(() => showSignUp = !showSignUp);
+                },
+                child: Text(showSignUp ? 'Back to Sign In' : 'Create account'),
               ),
             ],
           ),
