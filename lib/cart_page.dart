@@ -38,7 +38,8 @@ class _CartPageState extends State<CartPage> {
                                 DropdownButton<String>(
                                   value: item.selectedSize,
                                   hint: const Text('-'),
-                                  items: (item.product.sizes ?? ['S', 'M', 'L', 'XL'])
+                                  items: (item.product.sizes ??
+                                          ['S', 'M', 'L', 'XL'])
                                       .map((size) => DropdownMenuItem(
                                             value: size,
                                             child: Text(size),
@@ -55,7 +56,8 @@ class _CartPageState extends State<CartPage> {
                                 DropdownButton<String>(
                                   value: item.selectedColor,
                                   hint: const Text('-'),
-                                  items: (item.product.colors ?? ['Black', 'White', 'Purple'])
+                                  items: (item.product.colors ??
+                                          ['Black', 'White', 'Purple'])
                                       .map((color) => DropdownMenuItem(
                                             value: color,
                                             child: Text(color),

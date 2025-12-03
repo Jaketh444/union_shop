@@ -2,7 +2,7 @@ import 'product.dart';
 
 class CartItem {
   final Product product;
-  String? selectedSize;    // Remove 'final' so these can be updated
+  String? selectedSize; // Remove 'final' so these can be updated
   String? selectedColor;
   int quantity;
 
