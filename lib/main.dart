@@ -9,7 +9,7 @@ import 'package:union_shop/collections_page.dart';
 import 'package:union_shop/auth_page.dart';
 import 'package:union_shop/models/cart_item.dart';
 import 'package:union_shop/cart_page.dart'; // <-- Import the CartPage
-import 'package:carousel_slider/carousel_slider.dart';
+
 
 Future<void> saveCart(List<CartItem> cartItems) async {
   final prefs = await SharedPreferences.getInstance();
@@ -95,12 +95,6 @@ class HomeScreen extends StatelessWidget {
           final productTitleFontSize = isMobile ? 16.0 : 20.0;
           final gridCrossAxisCount = isMobile ? 1 : 2;
 
-          final List<String> heroImages = [
-            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-            'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard1_1024x1024@2x.jpg?v=1752232561',
-          ];
-
           return SingleChildScrollView(
             child: Column(
               children: [
@@ -112,32 +106,21 @@ class HomeScreen extends StatelessWidget {
                   width: double.infinity,
                   child: Stack(
                     children: [
-                      CarouselSlider(
-                        options: CarouselOptions(
-                          height: heroHeight,
-                          viewportFraction: 1.0,
-                          autoPlay: true,
-                          autoPlayInterval: const Duration(seconds: 3),
-                          enableInfiniteScroll: true,
-                        ),
-                        items: heroImages.map((imgUrl) {
-                          return Builder(
-                            builder: (context) => Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: NetworkImage(imgUrl),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.7),
-                                ),
-                              ),
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: NetworkImage(
+                              'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
                             ),
-                          );
-                        }).toList(),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.7),
+                          ),
+                        ),
                       ),
                       // Content overlay
                       Positioned(
