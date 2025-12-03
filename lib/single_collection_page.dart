@@ -5,6 +5,7 @@ import 'package:union_shop/data/product_list.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/footer.dart';
+import 'package:union_shop/single_product_page.dart';
 
 class SingleCollectionPage extends StatefulWidget {
   final String collectionTitle;
@@ -143,9 +144,19 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
               ),
               itemBuilder: (context, index) {
                 final product = paginatedProducts[index];
-                return ProductBox(
-                  product: product,
-                  isSale: isSaleCollection,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SingleProductPage(product: product),
+                      ),
+                    );
+                  },
+                  child: ProductBox(
+                    product: product,
+                    isSale: isSaleCollection,
+                  ),
                 );
               },
             ),

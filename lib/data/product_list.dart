@@ -179,10 +179,10 @@ final List<Product> drinkwareProducts = [
     image: 'assets/water_bottle_1.png',
     images: [
       'assets/water_bottle_1.png',
-      'assets/water_bottle_1_alt1.png',
-      'assets/water_bottle_1_alt2.png'
+      'assets/water_bottle_2.png',
+      'assets/water_bottle_3.png'
     ],
-    sizes: [],
+    sizes: ['350ml', '500ml', '750ml', '1L'],
     colors: ['Blue', 'Clear'],
     categories: ['Drinkware', 'Sale'],
     description: 'Reusable water bottle.',
