@@ -65,6 +65,8 @@ class UnionShopNavBar extends StatelessWidget {
                         Navigator.pushNamed(context, '/about');
                       } else if (value == 3) {
                         Navigator.pushNamed(context, '/auth');
+                      } else if (value == 4) {
+                        Navigator.pushNamed(context, '/cart');
                       }
                     },
                     itemBuilder: (context) => [
@@ -84,18 +86,23 @@ class UnionShopNavBar extends StatelessWidget {
                         value: 3,
                         child: Text('Auth'),
                       ),
+                      const PopupMenuItem(
+                        value: 4,
+                        child: Row(
+                          children: [
+                            Icon(Icons.shopping_cart, color: Color(0xFF4d2963)),
+                            SizedBox(width: 8),
+                            Text('Cart'),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ],
               IconButton(
                 icon: const Icon(Icons.shopping_cart),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const CartPage()),
-                  );
-                },
+                onPressed: () => Navigator.pushNamed(context, '/cart'),
               ),
             ],
           ),
