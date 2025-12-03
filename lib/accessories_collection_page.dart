@@ -41,61 +41,58 @@ class AccessoriesCollectionPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const UnionShopHeader(),
-          UnionShopNavBar(context, selectedIndex: 4),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Accessories',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF4d2963),
-                    ),
-                  ),
-                  const SizedBox(height: 24),
-                  Expanded(
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        final crossAxisCount =
-                            constraints.maxWidth < 600 ? 1 : 2;
-                        return GridView.builder(
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: crossAxisCount,
-                            crossAxisSpacing: 24,
-                            mainAxisSpacing: 24,
-                            childAspectRatio: 1.6,
+                const UnionShopHeader(),
+                UnionShopNavBar(context, selectedIndex: 4),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Accessories',
+                          style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF4d2963),
                           ),
-                          itemCount: products.length,
-                          itemBuilder: (context, index) {
-                            final product = products[index];
-                            return CollectionBox(
-                              title: product['title'] ?? '',
-                              image: product['image'] ?? '',
-                              onTap: () {
-                                if (product['route'] != null) {
-                                  Navigator.pushNamed(
-                                      context, product['route']!);
-                                }
-                              },
-                            );
-                          },
-                        );
-                      },
+                        ),
+                        const SizedBox(height: 24),
+                        Expanded(
+                          child: LayoutBuilder(
+                            builder: (context, constraints) {
+                              final crossAxisCount = constraints.maxWidth < 600 ? 1 : 2;
+                              return GridView.builder(
+                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: crossAxisCount,
+                                  crossAxisSpacing: 24,
+                                  mainAxisSpacing: 24,
+                                  childAspectRatio: 1.6,
+                                ),
+                                itemCount: products.length,
+                                itemBuilder: (context, index) {
+                                  final product = products[index];
+                                  return CollectionBox(
+                                    title: product['title'] ?? '',
+                                    image: product['image'] ?? '',
+                                    onTap: () {
+                                      if (product['route'] != null) {
+                                        Navigator.pushNamed(context, product['route']!);
+                                      }
+                                    },
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                     ),
                   ),
-                ],
-              ),
-            ),
-          ),
-          const UnionShopFooter(),
-        ],
-      ),
-    );
+                  const UnionShopFooter(),
+          ],
+        ),
+      );
   }
 }

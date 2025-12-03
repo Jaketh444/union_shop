@@ -246,43 +246,7 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.grey,
                       ),
 
-                      // Placeholder for category navigation
-                      Container(
-                        width: double.infinity,
-                        color: Colors.white,
-                        padding:
-                            EdgeInsets.symmetric(vertical: isMobile ? 12 : 24),
-                        child: const Center(
-                          child: Text(
-                            'Category navigation coming soon...',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 16,
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      // Placeholder for search/filter
-                      Container(
-                        width: double.infinity,
-                        color: Colors.white,
-                        padding:
-                            EdgeInsets.symmetric(vertical: isMobile ? 12 : 24),
-                        child: const Center(
-                          child: Text(
-                            'Search and filter functionality coming soon...',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 16,
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      // Placeholder for shopping cart
+                      // Category navigation placeholder
                       Container(
                         width: double.infinity,
                         color: Colors.white,
@@ -299,13 +263,11 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-
-                      // Replace old footer with reusable footer
-                      const UnionShopFooter(),
                     ],
                   ),
                 ),
               ),
+              const UnionShopFooter(),
             ],
           );
         },

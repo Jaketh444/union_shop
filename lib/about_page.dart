@@ -22,7 +22,7 @@ class AboutPage extends StatelessWidget {
 
           return Column(
             children: [
-              const UnionShopHeader(),
+              const UnionShopHeader(), // Keep header outside scrollable area
               UnionShopNavBar(context, selectedIndex: 1),
               Expanded(
                 child: SingleChildScrollView(
@@ -111,7 +111,7 @@ class AboutPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const UnionShopFooter(),
+              const UnionShopFooter(), // Keep footer outside scrollable area
             ],
           );
         },
