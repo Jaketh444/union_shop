@@ -24,7 +24,7 @@
 - [X] Dummy collections page
 - [X] Dummy collection page (products in one collection)
 - [X] Dummy product page (details; dropdowns don't need to function)
-- [ ] Sale collection page
+- [X] Sale collection page
 - [ ] Authentication UI (login/signup screens — no backend needed)
 - [X] Static navbar with collapse on mobile
 
