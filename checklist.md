@@ -32,7 +32,7 @@
 
 - [X] Dynamic collections page (uses models/services + functional filters/sorting/pagination)
 - [X] Dynamic single collection page (functional widgets)
-- [ ] Functional product pages (dropdowns & counters functional)
+- [X] Functional product pages (dropdowns & counters functional)
 - [ ] Shopping cart (can add/view/place order — no real payment)
 - [ ] Print Shack page (form updates dynamically)
 - [ ] Full navigation across all pages & URL navigation
