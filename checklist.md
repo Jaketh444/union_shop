@@ -90,5 +90,5 @@
 
 - [X] Expand beyond the starter files
 - [X] Maintain a clean, organised project structure
-- [ ] Keep code formatted, structured, and free of warnings/errors
+- [X] Keep code formatted, structured, and free of warnings/errors
 - [X] Avoid duplication and ensure refactoring where needed
