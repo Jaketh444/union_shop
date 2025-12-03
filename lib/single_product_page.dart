@@ -143,6 +143,16 @@ class _SingleProductPageState extends State<SingleProductPage> {
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () {
+                      final hasSizes = (widget.product.sizes != null && widget.product.sizes!.isNotEmpty);
+                      final hasColors = (widget.product.colors != null && widget.product.colors!.isNotEmpty);
+
+                      if ((hasSizes && selectedSize == null) || (hasColors && selectedColor == null)) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Please select a size and/or color before adding to cart.')),
+                        );
+                        return;
+                      }
+
                       cartItems.add(
                         CartItem(
                           product: widget.product,
