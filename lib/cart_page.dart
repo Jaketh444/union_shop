@@ -60,7 +60,8 @@ class _CartPageState extends State<CartPage> {
                             context: context,
                             builder: (context) => AlertDialog(
                               title: const Text('Order Placed'),
-                              content: const Text('Your order has been placed!'),
+                              content:
+                                  const Text('Your order has been placed!'),
                               actions: [
                                 TextButton(
                                   onPressed: () => Navigator.pop(context),
