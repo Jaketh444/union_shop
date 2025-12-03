@@ -187,6 +187,20 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                 ),
               ],
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.arrow_back),
+                label: const Text('Back to Collections'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF4d2963),
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  Navigator.pop(context); // Returns to the collections page
+                },
+              ),
+            ),
             const UnionShopFooter(),
           ],
         ),
