@@ -35,8 +35,8 @@
 - [X] Functional product pages (dropdowns & counters functional)
 - [X] Shopping cart (can add/view/place order — no real payment)
 - [ ] Print Shack page (form updates dynamically)
-- [ ] Full navigation across all pages & URL navigation
-- [ ] Responsive layout (works on mobile + desktop browser widths)
+- [X] Full navigation across all pages & URL navigation
+- [] Responsive layout (works on mobile + desktop browser widths)
 
 ## 5. Application Development — Advanced Features (25% of 30% app marks)
 
