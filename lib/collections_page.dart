@@ -9,16 +9,72 @@ import 'package:union_shop/models/nav_bar.dart';
 
 final List<Collection> allCollections = [
   Collection(
-      title: 'Accessories',
-      image: 'assets/accessories.png',
-      route: '/accessories'),
-  Collection(title: 'Apparel', image: 'assets/apparel.png', route: '/apparel'),
+    title: 'Hoodies',
+    image: 'assets/hoodies.png',
+    route: '/hoodies',
+    category: 'Apparel',
+  ),
   Collection(
-      title: 'Drinkware', image: 'assets/drinkware.png', route: '/drinkware'),
-  Collection(title: 'Bags', image: 'assets/bags.png', route: '/bags'),
-  Collection(title: 'Sale', image: 'assets/sale.png', route: '/sale'),
-  // Add more general collections as needed
+    title: 'Shirts',
+    image: 'assets/shirts.png',
+    route: '/shirts',
+    category: 'Apparel',
+  ),
+  Collection(
+    title: 'Jackets',
+    image: 'assets/jackets.png',
+    route: '/jackets',
+    category: 'Apparel',
+  ),
+  Collection(
+    title: 'Accessories',
+    image: 'assets/accessories.png',
+    route: '/accessories',
+    category: 'General',
+  ),
+  Collection(
+    title: 'Drinkware',
+    image: 'assets/drinkware.png',
+    route: '/drinkware',
+    category: 'General',
+  ),
+  Collection(
+    title: 'Bags',
+    image: 'assets/bags.png',
+    route: '/bags',
+    category: 'General',
+  ),
+  Collection(
+    title: 'Sale',
+    image: 'assets/sale.png',
+    route: '/sale',
+    category: 'Sale',
+  ),
 ];
+
+// Update filterOptions to use categories
+List<String> filterOptions = [
+  'All',
+  'Apparel',
+  'General',
+  'Sale'
+];
+
+// Update filtering logic to use category
+List<Collection> get filteredCollections {
+  String filter = 'All';
+  String sort = 'A-Z';
+  List<Collection> filtered = filter == 'All'
+      ? allCollections
+      : allCollections.where((c) => c.category == filter).toList();
+
+  if (sort == 'A-Z') {
+    filtered.sort((a, b) => a.title.compareTo(b.title));
+  } else {
+    filtered.sort((a, b) => b.title.compareTo(a.title));
+  }
+  return filtered;
+}
 
 class CollectionsPage extends StatefulWidget {
   const CollectionsPage({super.key});
@@ -33,10 +89,8 @@ class _CollectionsPageState extends State<CollectionsPage> {
 
   List<String> filterOptions = [
     'All',
-    'Accessories',
     'Apparel',
-    'Drinkware',
-    'Bags',
+    'General',
     'Sale'
   ];
   List<String> sortOptions = ['A-Z', 'Z-A'];
@@ -44,7 +98,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
   List<Collection> get filteredCollections {
     List<Collection> filtered = filter == 'All'
         ? allCollections
-        : allCollections.where((c) => c.title == filter).toList();
+        : allCollections.where((c) => c.category == filter).toList();
 
     if (sort == 'A-Z') {
       filtered.sort((a, b) => a.title.compareTo(b.title));
