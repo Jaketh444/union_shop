@@ -32,8 +32,43 @@ class _CartPageState extends State<CartPage> {
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                                'Size: ${item.selectedSize ?? "-"} | Color: ${item.selectedColor ?? "-"}'),
+                            Row(
+                              children: [
+                                const Text('Size: '),
+                                DropdownButton<String>(
+                                  value: item.selectedSize,
+                                  hint: const Text('-'),
+                                  items: (item.product.sizes ?? ['S', 'M', 'L', 'XL'])
+                                      .map((size) => DropdownMenuItem(
+                                            value: size,
+                                            child: Text(size),
+                                          ))
+                                      .toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      item.selectedSize = value;
+                                    });
+                                  },
+                                ),
+                                const SizedBox(width: 16),
+                                const Text('Color: '),
+                                DropdownButton<String>(
+                                  value: item.selectedColor,
+                                  hint: const Text('-'),
+                                  items: (item.product.colors ?? ['Black', 'White', 'Purple'])
+                                      .map((color) => DropdownMenuItem(
+                                            value: color,
+                                            child: Text(color),
+                                          ))
+                                      .toList(),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      item.selectedColor = value;
+                                    });
+                                  },
+                                ),
+                              ],
+                            ),
                             const SizedBox(height: 4),
                             Row(
                               children: [
