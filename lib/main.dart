@@ -150,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 24),
                             ElevatedButton(
-                              onPressed: placeholderCallbackForButtons,
+                              onPressed: () => Navigator.pushNamed(context, '/collections'),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: const Color(0xFF4d2963),
                                 foregroundColor: Colors.white,
@@ -224,7 +224,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         SizedBox(height: isMobile ? 16 : 32),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () => Navigator.pushNamed(context, '/collections'),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFF4d2963),
                             foregroundColor: Colors.white,
