@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/footer.dart';
+import 'package:union_shop/models/collection_box.dart';
 
 class CollectionsPage extends StatelessWidget {
   const CollectionsPage({super.key});
@@ -16,18 +17,22 @@ class CollectionsPage extends StatelessWidget {
       {
         'title': 'Hoodies & Sweatshirts',
         'image': 'https://shop.upsu.net/cdn/shop/collections/hoodies.jpg',
+        'route': '/hoodies',
       },
       {
         'title': 'Gifts & Souvenirs',
         'image': 'https://shop.upsu.net/cdn/shop/collections/gifts.jpg',
+        'route': '/gifts',
       },
       {
         'title': 'Accessories',
         'image': 'https://shop.upsu.net/cdn/shop/collections/accessories.jpg',
+        'route': '/accessories',
       },
       {
         'title': 'Sale',
         'image': 'https://shop.upsu.net/cdn/shop/collections/sale.jpg',
+        'route': '/sale',
       },
     ];
 
@@ -50,53 +55,14 @@ class CollectionsPage extends StatelessWidget {
                 itemCount: collections.length,
                 itemBuilder: (context, index) {
                   final collection = collections[index];
-                  return Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    clipBehavior: Clip.antiAlias,
-                    child: InkWell(
-                      onTap: () {
-                        if (collection['title'] == 'Accessories') {
-                          Navigator.pushNamed(context, '/accessories');
-                        } else if (collection['title'] == 'Sale') {
-                          Navigator.pushNamed(context, '/sale');
-                        }
-                        // TODO: Add navigation for other collections as needed
-                      },
-                      child: Stack(
-                        children: [
-                          Positioned.fill(
-                            child: Image.network(
-                              collection['image']!,
-                              fit: BoxFit.cover,
-                              errorBuilder: (context, error, stackTrace) =>
-                                  Container(color: Colors.grey[300]),
-                            ),
-                          ),
-                          Container(
-                            alignment: Alignment.center,
-                            color: Colors.black.withOpacity(0.45),
-                            child: Text(
-                              collection['title']!,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
-                                shadows: [
-                                  Shadow(
-                                    blurRadius: 4,
-                                    color: Colors.black54,
-                                    offset: Offset(1, 1),
-                                  ),
-                                ],
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  return CollectionBox(
+                    title: collection['title']!,
+                    image: collection['image']!,
+                    onTap: () {
+                      if (collection['route'] != null) {
+                        Navigator.pushNamed(context, collection['route']!);
+                      }
+                    },
                   );
                 },
               ),
