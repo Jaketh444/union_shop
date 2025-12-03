@@ -19,7 +19,8 @@ class ProductBox extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(product.title, style: const TextStyle(fontWeight: FontWeight.bold)),
+            child: Text(product.title,
+                style: const TextStyle(fontWeight: FontWeight.bold)),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
