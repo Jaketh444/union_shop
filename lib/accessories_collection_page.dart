@@ -22,7 +22,8 @@ class AccessoriesCollectionPage extends StatelessWidget {
       },
       {
         'name': 'UPSU Water Bottle',
-        'image': 'https://via.placeholder.com/300',
+        'image':
+            'assets/water_bottle_1.png', // Use your actual asset image here
         'price': '£8.00',
       },
       {
