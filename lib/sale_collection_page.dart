@@ -53,9 +53,11 @@ class SaleCollectionPage extends StatelessWidget {
                   Expanded(
                     child: LayoutBuilder(
                       builder: (context, constraints) {
-                        final crossAxisCount = constraints.maxWidth < 600 ? 1 : 2;
+                        final crossAxisCount =
+                            constraints.maxWidth < 600 ? 1 : 2;
                         return GridView.builder(
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: crossAxisCount,
                             crossAxisSpacing: 24,
                             mainAxisSpacing: 24,
@@ -71,7 +73,8 @@ class SaleCollectionPage extends StatelessWidget {
                               clipBehavior: Clip.antiAlias,
                               child: InkWell(
                                 onTap: () {
-                                  if (product['name'] == 'Portsmouth Hoodie (Sale)') {
+                                  if (product['name'] ==
+                                      'Portsmouth Hoodie (Sale)') {
                                     Navigator.pushNamed(context, '/hoodie');
                                   }
                                   // TODO: Add navigation for other sale products
@@ -79,7 +82,8 @@ class SaleCollectionPage extends StatelessWidget {
                                 child: Stack(
                                   children: [
                                     Positioned.fill(
-                                      child: product['image']!.startsWith('assets/')
+                                      child: product['image']!
+                                              .startsWith('assets/')
                                           ? Image.asset(
                                               product['image']!,
                                               fit: BoxFit.cover,
@@ -95,7 +99,8 @@ class SaleCollectionPage extends StatelessWidget {
                                       color: Colors.black.withOpacity(0.45),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             product['name']!,
@@ -121,7 +126,8 @@ class SaleCollectionPage extends StatelessWidget {
                                                 style: const TextStyle(
                                                   color: Colors.grey,
                                                   fontSize: 14,
-                                                  decoration: TextDecoration.lineThrough,
+                                                  decoration: TextDecoration
+                                                      .lineThrough,
                                                 ),
                                               ),
                                             ],
