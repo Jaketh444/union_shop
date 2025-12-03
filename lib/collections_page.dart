@@ -7,38 +7,52 @@ import 'package:union_shop/models/footer.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
 
-// Example list of collections
-final List<Collection> collections = [
+final List<Collection> allCollections = [
   Collection(
-    title: 'Accessories',
-    image: 'assets/accessories.png',
-    route: '/accessories',
-  ),
+      title: 'Accessories',
+      image: 'assets/accessories.png',
+      route: '/accessories'),
+  Collection(title: 'Apparel', image: 'assets/apparel.png', route: '/apparel'),
   Collection(
-    title: 'Apparel',
-    image: 'assets/apparel.png',
-    route: '/apparel',
-  ),
-  Collection(
-    title: 'Drinkware',
-    image: 'assets/drinkware.png',
-    route: '/drinkware',
-  ),
-  Collection(
-    title: 'Bags',
-    image: 'assets/bags.png',
-    route: '/bags',
-  ),
-  Collection(
-    title: 'Sale',
-    image: 'assets/sale.png',
-    route: '/sale',
-  ),
+      title: 'Drinkware', image: 'assets/drinkware.png', route: '/drinkware'),
+  Collection(title: 'Bags', image: 'assets/bags.png', route: '/bags'),
+  Collection(title: 'Sale', image: 'assets/sale.png', route: '/sale'),
   // Add more general collections as needed
 ];
 
-class CollectionsPage extends StatelessWidget {
+class CollectionsPage extends StatefulWidget {
   const CollectionsPage({super.key});
+
+  @override
+  State<CollectionsPage> createState() => _CollectionsPageState();
+}
+
+class _CollectionsPageState extends State<CollectionsPage> {
+  String filter = 'All';
+  String sort = 'A-Z';
+
+  List<String> filterOptions = [
+    'All',
+    'Accessories',
+    'Apparel',
+    'Drinkware',
+    'Bags',
+    'Sale'
+  ];
+  List<String> sortOptions = ['A-Z', 'Z-A'];
+
+  List<Collection> get filteredCollections {
+    List<Collection> filtered = filter == 'All'
+        ? allCollections
+        : allCollections.where((c) => c.title == filter).toList();
+
+    if (sort == 'A-Z') {
+      filtered.sort((a, b) => a.title.compareTo(b.title));
+    } else {
+      filtered.sort((a, b) => b.title.compareTo(a.title));
+    }
+    return filtered;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +62,34 @@ class CollectionsPage extends StatelessWidget {
           children: [
             const UnionShopHeader(),
             UnionShopNavBar(context, selectedIndex: 3),
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  const Text('Filter: ', style: TextStyle(fontSize: 16)),
+                  DropdownButton<String>(
+                    value: filter,
+                    items: filterOptions
+                        .map((f) => DropdownMenuItem(value: f, child: Text(f)))
+                        .toList(),
+                    onChanged: (value) {
+                      if (value != null) setState(() => filter = value);
+                    },
+                  ),
+                  const SizedBox(width: 24),
+                  const Text('Sort: ', style: TextStyle(fontSize: 16)),
+                  DropdownButton<String>(
+                    value: sort,
+                    items: sortOptions
+                        .map((s) => DropdownMenuItem(value: s, child: Text(s)))
+                        .toList(),
+                    onChanged: (value) {
+                      if (value != null) setState(() => sort = value);
+                    },
+                  ),
+                ],
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(16),
               child: LayoutBuilder(
@@ -62,7 +104,7 @@ class CollectionsPage extends StatelessWidget {
                   return GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: collections.length,
+                    itemCount: filteredCollections.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: crossAxisCount,
                       crossAxisSpacing: 16,
@@ -70,7 +112,7 @@ class CollectionsPage extends StatelessWidget {
                       childAspectRatio: 1.2,
                     ),
                     itemBuilder: (context, index) {
-                      final collection = collections[index];
+                      final collection = filteredCollections[index];
                       return CollectionBox(
                         title: collection.title,
                         image: collection.image,
