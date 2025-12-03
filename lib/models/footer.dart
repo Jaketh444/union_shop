@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/models/header.dart';
+import 'package:union_shop/models/nav_bar.dart';
 
 class UnionShopFooter extends StatelessWidget {
   const UnionShopFooter({super.key});
@@ -106,6 +108,34 @@ class UnionShopFooter extends StatelessWidget {
               ),
             ],
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class UnionShopScreen extends StatelessWidget {
+  const UnionShopScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          // Header and nav bar
+          const UnionShopHeader(),
+          UnionShopNavBar(context, selectedIndex: 0),
+          // Main content
+          const Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(16),
+                child: Text('Welcome to Union Shop!'),
+              ),
+            ),
+          ),
+          // Footer at the bottom
+          const UnionShopFooter(),
         ],
       ),
     );
