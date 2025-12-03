@@ -53,12 +53,7 @@ final List<Collection> allCollections = [
 ];
 
 // Update filterOptions to use categories
-List<String> filterOptions = [
-  'All',
-  'Apparel',
-  'General',
-  'Sale'
-];
+List<String> filterOptions = ['All', 'Apparel', 'General', 'Sale'];
 
 // Update filtering logic to use category
 List<Collection> get filteredCollections {
@@ -90,12 +85,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
   String filter = 'All';
   String sort = 'A-Z';
 
-  List<String> filterOptions = [
-    'All',
-    'Apparel',
-    'General',
-    'Sale'
-  ];
+  List<String> filterOptions = ['All', 'Apparel', 'General', 'Sale'];
   List<String> sortOptions = ['A-Z', 'Z-A'];
 
   List<Collection> get filteredCollections {
@@ -117,8 +107,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
     return filteredCollections.sublist(start, end);
   }
 
-  int get totalPages =>
-      (filteredCollections.length / itemsPerPage).ceil();
+  int get totalPages => (filteredCollections.length / itemsPerPage).ceil();
 
   @override
   Widget build(BuildContext context) {
