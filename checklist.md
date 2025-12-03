@@ -36,7 +36,7 @@
 - [X] Shopping cart (can add/view/place order — no real payment)
 - [ ] Print Shack page (form updates dynamically)
 - [X] Full navigation across all pages & URL navigation
-- [] Responsive layout (works on mobile + desktop browser widths)
+- [X] Responsive layout (works on mobile + desktop browser widths)
 
 ## 5. Application Development — Advanced Features (25% of 30% app marks)
 
@@ -49,8 +49,8 @@
 
 ### Git (8%)
 
-- [ ] Commit regularly (small, meaningful commits)
-- [ ] Clear commit messages following good practice
+- [X] Commit regularly (small, meaningful commits)
+- [X] Clear commit messages following good practice
 
 ### README (5%)
 
