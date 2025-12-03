@@ -4,6 +4,9 @@ final List<Product> hoodiesProducts = [
   Product(
     title: 'Classic Hoodie',
     image: 'assets/hoodie_1.png',
+    images: ['assets/hoodie_1.png', 'assets/hoodie_1_alt1.png', 'assets/hoodie_1_alt2.png'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Black', 'Purple', 'White'],
     categories: ['Hoodies', 'Sale'],
     description: 'A classic university hoodie.',
     price: 25.00,
@@ -11,6 +14,9 @@ final List<Product> hoodiesProducts = [
   Product(
     title: 'Zip Hoodie',
     image: 'assets/hoodie2.png',
+    images: ['assets/hoodie2.png', 'assets/hoodie2_alt1.png', 'assets/hoodie2_alt2.png'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Black', 'Grey'],
     categories: ['Hoodies'],
     description: 'A comfy zip-up hoodie.',
     price: 28.00,
@@ -18,6 +24,9 @@ final List<Product> hoodiesProducts = [
   Product(
     title: 'Pullover Hoodie',
     image: 'assets/hoodie3.png',
+    images: ['assets/hoodie3.png', 'assets/hoodie3_alt1.png', 'assets/hoodie3_alt2.png'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Navy', 'White'],
     categories: ['Hoodies'],
     description: 'Pullover style, soft and warm.',
     price: 27.00,
@@ -25,6 +34,9 @@ final List<Product> hoodiesProducts = [
   Product(
     title: 'Sport Hoodie',
     image: 'assets/hoodie4.png',
+    images: ['assets/hoodie4.png', 'assets/hoodie4_alt1.png', 'assets/hoodie4_alt2.png'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Black', 'Grey'],
     categories: ['Hoodies'],
     description: 'Sporty hoodie for active students.',
     price: 30.00,
@@ -35,6 +47,9 @@ final List<Product> shirtsProducts = [
   Product(
     title: 'Logo Shirt',
     image: 'assets/shirt1.png',
+    images: ['assets/shirt1.png', 'assets/shirt1_alt1.png', 'assets/shirt1_alt2.png'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['White', 'Purple'],
     categories: ['Shirts'],
     description: 'A shirt with the university logo.',
     price: 15.00,
@@ -42,6 +57,9 @@ final List<Product> shirtsProducts = [
   Product(
     title: 'Long Sleeve Shirt',
     image: 'assets/shirt2.png',
+    images: ['assets/shirt2.png', 'assets/shirt2_alt1.png', 'assets/shirt2_alt2.png'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['White', 'Grey'],
     categories: ['Shirts'],
     description: 'A long sleeve university shirt.',
     price: 18.00,
@@ -49,6 +67,9 @@ final List<Product> shirtsProducts = [
   Product(
     title: 'Polo Shirt',
     image: 'assets/shirt3.png',
+    images: ['assets/shirt3.png', 'assets/shirt3_alt1.png', 'assets/shirt3_alt2.png'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Navy', 'White'],
     categories: ['Shirts'],
     description: 'Smart polo shirt for events.',
     price: 20.00,
@@ -56,6 +77,9 @@ final List<Product> shirtsProducts = [
   Product(
     title: 'Graphic Tee',
     image: 'assets/shirt4.png',
+    images: ['assets/shirt4.png', 'assets/shirt4_alt1.png', 'assets/shirt4_alt2.png'],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Black', 'White'],
     categories: ['Shirts', 'Sale'],
     description: 'T-shirt with a fun graphic.',
     price: 16.00,
@@ -66,6 +90,9 @@ final List<Product> accessoriesProducts = [
   Product(
     title: 'Portsmouth Lanyard',
     image: 'assets/lanyard.png',
+    images: ['assets/lanyard.png', 'assets/lanyard_alt1.png', 'assets/lanyard_alt2.png'],
+    sizes: [],
+    colors: ['Purple'],
     categories: ['Accessories', 'Sale'],
     description: 'University branded lanyard.',
     price: 3.00,
@@ -73,6 +100,9 @@ final List<Product> accessoriesProducts = [
   Product(
     title: 'Student Card Holder',
     image: 'assets/cardholder.png',
+    images: ['assets/cardholder.png', 'assets/cardholder_alt1.png', 'assets/cardholder_alt2.png'],
+    sizes: [],
+    colors: ['Black', 'Clear'],
     categories: ['Accessories'],
     description: 'Keep your student card safe.',
     price: 4.00,
@@ -80,6 +110,9 @@ final List<Product> accessoriesProducts = [
   Product(
     title: 'Pin Badge',
     image: 'assets/pin.png',
+    images: ['assets/pin.png', 'assets/pin_alt1.png', 'assets/pin_alt2.png'],
+    sizes: [],
+    colors: ['Gold', 'Silver'],
     categories: ['Accessories'],
     description: 'Union pin badge.',
     price: 2.00,
@@ -87,6 +120,9 @@ final List<Product> accessoriesProducts = [
   Product(
     title: 'Notebook',
     image: 'assets/notebook.png',
+    images: ['assets/notebook.png', 'assets/notebook_alt1.png', 'assets/notebook_alt2.png'],
+    sizes: [],
+    colors: ['Purple', 'Black'],
     categories: ['Accessories'],
     description: 'A5 notebook for lectures.',
     price: 5.00,
@@ -97,6 +133,9 @@ final List<Product> drinkwareProducts = [
   Product(
     title: 'UPSU Water Bottle',
     image: 'assets/water_bottle_1.png',
+    images: ['assets/water_bottle_1.png', 'assets/water_bottle_1_alt1.png', 'assets/water_bottle_1_alt2.png'],
+    sizes: [],
+    colors: ['Blue', 'Clear'],
     categories: ['Drinkware', 'Sale'],
     description: 'Reusable water bottle.',
     price: 8.00,
@@ -104,6 +143,9 @@ final List<Product> drinkwareProducts = [
   Product(
     title: 'Union Mug',
     image: 'assets/mug.png',
+    images: ['assets/mug.png', 'assets/mug_alt1.png', 'assets/mug_alt2.png'],
+    sizes: [],
+    colors: ['White'],
     categories: ['Drinkware'],
     description: 'Ceramic mug for hot drinks.',
     price: 6.00,
@@ -111,6 +153,9 @@ final List<Product> drinkwareProducts = [
   Product(
     title: 'Travel Cup',
     image: 'assets/travel_cup.png',
+    images: ['assets/travel_cup.png', 'assets/travel_cup_alt1.png', 'assets/travel_cup_alt2.png'],
+    sizes: [],
+    colors: ['Black', 'Silver'],
     categories: ['Drinkware'],
     description: 'Take your coffee on the go.',
     price: 10.00,
@@ -121,6 +166,9 @@ final List<Product> bagsProducts = [
   Product(
     title: 'University Tote Bag',
     image: 'assets/tote_bag.png',
+    images: ['assets/tote_bag.png', 'assets/tote_bag_alt1.png', 'assets/tote_bag_alt2.png'],
+    sizes: [],
+    colors: ['Natural', 'Purple'],
     categories: ['Bags'],
     description: 'Eco-friendly tote bag.',
     price: 6.00,
@@ -128,6 +176,9 @@ final List<Product> bagsProducts = [
   Product(
     title: 'Backpack',
     image: 'assets/backpack.png',
+    images: ['assets/backpack.png', 'assets/backpack_alt1.png', 'assets/backpack_alt2.png'],
+    sizes: [],
+    colors: ['Black', 'Blue'],
     categories: ['Bags'],
     description: 'Spacious student backpack.',
     price: 20.00,
@@ -135,6 +186,9 @@ final List<Product> bagsProducts = [
   Product(
     title: 'Gym Bag',
     image: 'assets/gym_bag.png',
+    images: ['assets/gym_bag.png', 'assets/gym_bag_alt1.png', 'assets/gym_bag_alt2.png'],
+    sizes: [],
+    colors: ['Black'],
     categories: ['Bags'],
     description: 'Perfect for sports kit.',
     price: 12.00,
