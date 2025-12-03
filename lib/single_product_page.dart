@@ -32,7 +32,8 @@ class _SingleProductPageState extends State<SingleProductPage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.pop(context); // Returns to previous page (single collection)
+            Navigator.pop(
+                context); // Returns to previous page (single collection)
           },
         ),
         title: const Text('Product Details'),
@@ -154,12 +155,17 @@ class _SingleProductPageState extends State<SingleProductPage> {
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () {
-                      final hasSizes = (widget.product.sizes != null && widget.product.sizes!.isNotEmpty);
-                      final hasColors = (widget.product.colors != null && widget.product.colors!.isNotEmpty);
+                      final hasSizes = (widget.product.sizes != null &&
+                          widget.product.sizes!.isNotEmpty);
+                      final hasColors = (widget.product.colors != null &&
+                          widget.product.colors!.isNotEmpty);
 
-                      if ((hasSizes && selectedSize == null) || (hasColors && selectedColor == null)) {
+                      if ((hasSizes && selectedSize == null) ||
+                          (hasColors && selectedColor == null)) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Please select a size and/or color before adding to cart.')),
+                          const SnackBar(
+                              content: Text(
+                                  'Please select a size and/or color before adding to cart.')),
                         );
                         return;
                       }
@@ -188,7 +194,8 @@ class _SingleProductPageState extends State<SingleProductPage> {
                         foregroundColor: Colors.white,
                       ),
                       onPressed: () {
-                        Navigator.pop(context); // Returns to single collection page
+                        Navigator.pop(
+                            context); // Returns to single collection page
                       },
                     ),
                   ),
