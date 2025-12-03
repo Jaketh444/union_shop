@@ -27,8 +27,7 @@ class AboutPage extends StatelessWidget {
                 UnionShopNavBar(context, selectedIndex: 1),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: horizontalPadding,
-                      vertical: verticalPadding),
+                      horizontal: horizontalPadding, vertical: verticalPadding),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -98,8 +97,7 @@ class AboutPage extends StatelessWidget {
                               child: SelectableText(
                                 "shop@upsu.net",
                                 style: TextStyle(
-                                    fontSize: infoFontSize,
-                                    color: Colors.blue),
+                                    fontSize: infoFontSize, color: Colors.blue),
                               ),
                             ),
                           ],
