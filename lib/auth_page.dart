@@ -54,7 +54,7 @@ class _AuthPageState extends State<AuthPage> {
                 ),
                 obscureText: true,
               ),
-              if (showSignUp) ... [
+              if (showSignUp) ...[
                 const SizedBox(height: 16),
                 const TextField(
                   decoration: InputDecoration(
