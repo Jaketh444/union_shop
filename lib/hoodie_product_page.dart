@@ -127,8 +127,9 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
                                         onIncrease: () =>
                                             setState(() => quantity++),
                                         onDecrease: () {
-                                          if (quantity > 1)
+                                          if (quantity > 1) {
                                             setState(() => quantity--);
+                                          }
                                         },
                                         onAddToCart: () {
                                           ScaffoldMessenger.of(context)
@@ -198,8 +199,9 @@ class _HoodieProductPageState extends State<HoodieProductPage> {
                                   quantity: quantity,
                                   onIncrease: () => setState(() => quantity++),
                                   onDecrease: () {
-                                    if (quantity > 1)
+                                    if (quantity > 1) {
                                       setState(() => quantity--);
+                                    }
                                   },
                                   onAddToCart: () {
                                     ScaffoldMessenger.of(context).showSnackBar(

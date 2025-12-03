@@ -176,8 +176,9 @@ class _WaterBottleProductPageState extends State<WaterBottleProductPage> {
                                   quantity: quantity,
                                   onIncrease: () => setState(() => quantity++),
                                   onDecrease: () {
-                                    if (quantity > 1)
+                                    if (quantity > 1) {
                                       setState(() => quantity--);
+                                    }
                                   },
                                   onAddToCart: () {
                                     // TODO: Add to cart functionality
