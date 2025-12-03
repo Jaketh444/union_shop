@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/models/product.dart';
 import 'package:union_shop/models/product_box.dart';
 import 'package:union_shop/data/product_list.dart';
+import 'package:union_shop/models/header.dart';
+import 'package:union_shop/models/nav_bar.dart';
+import 'package:union_shop/models/footer.dart';
 
 class SingleCollectionPage extends StatefulWidget {
   final String collectionTitle;
@@ -71,6 +74,8 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const UnionShopHeader(),
+            UnionShopNavBar(context, selectedIndex: 2),
             Text(
               widget.collectionTitle,
               style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
@@ -85,11 +90,12 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                       .map((f) => DropdownMenuItem(value: f, child: Text(f)))
                       .toList(),
                   onChanged: (value) {
-                    if (value != null)
+                    if (value != null) {
                       setState(() {
                         filter = value;
                         currentPage = 1;
                       });
+                    }
                   },
                 ),
                 const SizedBox(width: 24),
@@ -100,11 +106,12 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                       .map((s) => DropdownMenuItem(value: s, child: Text(s)))
                       .toList(),
                   onChanged: (value) {
-                    if (value != null)
+                    if (value != null) {
                       setState(() {
                         sort = value;
                         currentPage = 1;
                       });
+                    }
                   },
                 ),
               ],
@@ -142,6 +149,7 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                 ),
               ],
             ),
+            const UnionShopFooter(),
           ],
         ),
       ),

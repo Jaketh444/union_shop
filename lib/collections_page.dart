@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/models/collection.dart';
 import 'package:union_shop/models/collection_box.dart';
 import 'package:union_shop/single_collection_page.dart';
+import 'package:union_shop/models/header.dart';
+import 'package:union_shop/models/nav_bar.dart';
+import 'package:union_shop/models/footer.dart';
 
 // Example collections list
 final List<Collection> allCollections = [
@@ -156,6 +159,8 @@ class _CollectionsPageState extends State<CollectionsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            const UnionShopHeader(),
+            UnionShopNavBar(context, selectedIndex: 2),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
               child: Row(
@@ -168,11 +173,12 @@ class _CollectionsPageState extends State<CollectionsPage> {
                         .map((f) => DropdownMenuItem(value: f, child: Text(f)))
                         .toList(),
                     onChanged: (value) {
-                      if (value != null)
+                      if (value != null) {
                         setState(() {
                           filter = value;
                           currentPage = 1;
                         });
+                      }
                     },
                   ),
                   const SizedBox(width: 24),
@@ -183,11 +189,12 @@ class _CollectionsPageState extends State<CollectionsPage> {
                         .map((s) => DropdownMenuItem(value: s, child: Text(s)))
                         .toList(),
                     onChanged: (value) {
-                      if (value != null)
+                      if (value != null) {
                         setState(() {
                           sort = value;
                           currentPage = 1;
                         });
+                      }
                     },
                   ),
                 ],
@@ -251,6 +258,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
                 ),
               ],
             ),
+            const UnionShopFooter(),
           ],
         ),
       ),
