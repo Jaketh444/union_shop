@@ -10,7 +10,6 @@ import 'package:union_shop/auth_page.dart';
 import 'package:union_shop/models/cart_item.dart';
 import 'package:union_shop/cart_page.dart'; // <-- Import the CartPage
 
-
 Future<void> saveCart(List<CartItem> cartItems) async {
   final prefs = await SharedPreferences.getInstance();
   final cartJson = jsonEncode(cartItems.map((e) => e.toMap()).toList());
