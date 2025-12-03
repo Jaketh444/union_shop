@@ -15,16 +15,16 @@ class CartItem {
   });
 
   Map<String, dynamic> toMap() => {
-    'product': product.toMap(),
-    'selectedSize': selectedSize,
-    'selectedColor': selectedColor,
-    'quantity': quantity,
-  };
+        'product': product.toMap(),
+        'selectedSize': selectedSize,
+        'selectedColor': selectedColor,
+        'quantity': quantity,
+      };
 
   factory CartItem.fromMap(Map<String, dynamic> map) => CartItem(
-    product: Product.fromMap(map['product']),
-    selectedSize: map['selectedSize'],
-    selectedColor: map['selectedColor'],
-    quantity: map['quantity'],
-  );
+        product: Product.fromMap(map['product']),
+        selectedSize: map['selectedSize'],
+        selectedColor: map['selectedColor'],
+        quantity: map['quantity'],
+      );
 }
