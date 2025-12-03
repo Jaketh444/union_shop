@@ -1,85 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:union_shop/models/product.dart'; // You’ll need a Product model
-import 'package:union_shop/models/product_box.dart'; // Reusable product widget
+import 'package:union_shop/models/product.dart';
+import 'package:union_shop/models/product_box.dart';
+import 'package:union_shop/data/product_list.dart';
 
-class SingleCollectionPage extends StatefulWidget {
+class SingleCollectionPage extends StatelessWidget {
   final String collectionTitle;
-  final List<Product> products;
 
   const SingleCollectionPage({
     super.key,
     required this.collectionTitle,
-    required this.products,
   });
 
-  @override
-  State<SingleCollectionPage> createState() => _SingleCollectionPageState();
-}
-
-class _SingleCollectionPageState extends State<SingleCollectionPage> {
-  String filter = 'All';
-  String sort = 'A-Z';
-  int currentPage = 1;
-  final int itemsPerPage = 8;
-
-  List<String> get filterOptions => [
-    'All',
-    ...{for (var p in widget.products) p.category}
-  ];
-
-  List<Product> get filteredProducts {
-    List<Product> filtered = filter == 'All'
-        ? widget.products
-        : widget.products.where((p) => p.category == filter).toList();
-
-    if (sort == 'A-Z') {
-      filtered.sort((a, b) => a.title.compareTo(b.title));
-    } else {
-      filtered.sort((a, b) => b.title.compareTo(a.title));
+  List<Product> getProductsForCollection() {
+    switch (collectionTitle) {
+      case 'Hoodies':
+        return hoodiesProducts;
+      case 'Shirts':
+        return shirtsProducts;
+      // Add more cases for other collections
+      default:
+        return [];
     }
-    return filtered;
   }
-
-  List<Product> get paginatedProducts {
-    final start = (currentPage - 1) * itemsPerPage;
-    final end = (start + itemsPerPage).clamp(0, filteredProducts.length);
-    return filteredProducts.sublist(start, end);
-  }
-
-  int get totalPages => (filteredProducts.length / itemsPerPage).ceil();
 
   @override
   Widget build(BuildContext context) {
+    final products = getProductsForCollection();
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text(widget.collectionTitle, style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-            Row(
-              children: [
-                const Text('Filter: '),
-                DropdownButton<String>(
-                  value: filter,
-                  items: filterOptions.map((f) => DropdownMenuItem(value: f, child: Text(f))).toList(),
-                  onChanged: (value) {
-                    if (value != null) setState(() => filter = value);
-                  },
-                ),
-                const SizedBox(width: 24),
-                const Text('Sort: '),
-                DropdownButton<String>(
-                  value: sort,
-                  items: ['A-Z', 'Z-A'].map((s) => DropdownMenuItem(value: s, child: Text(s))).toList(),
-                  onChanged: (value) {
-                    if (value != null) setState(() => sort = value);
-                  },
-                ),
-              ],
+            Text(
+              collectionTitle,
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(height: 16),
             GridView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: paginatedProducts.length,
+              itemCount: products.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 16,
@@ -87,27 +47,9 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                 childAspectRatio: 1.2,
               ),
               itemBuilder: (context, index) {
-                final product = paginatedProducts[index];
+                final product = products[index];
                 return ProductBox(product: product);
               },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.chevron_left),
-                  onPressed: currentPage > 1
-                      ? () => setState(() => currentPage--)
-                      : null,
-                ),
-                Text('Page $currentPage of $totalPages'),
-                IconButton(
-                  icon: const Icon(Icons.chevron_right),
-                  onPressed: currentPage < totalPages
-                      ? () => setState(() => currentPage++)
-                      : null,
-                ),
-              ],
             ),
           ],
         ),
