@@ -26,28 +26,36 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
   final int itemsPerPage = 8;
 
   List<Product> getProductsForCollection() {
-    switch (widget.collectionTitle) {
-      case 'Hoodies':
-        return hoodiesProducts;
-      case 'Shirts':
-        return shirtsProducts;
-      case 'Accessories':
-        return accessoriesProducts;
-      case 'Drinkware':
-        return drinkwareProducts;
-      case 'Bags':
-        return bagsProducts;
-      case 'Sale':
-        return [
-          ...hoodiesProducts,
-          ...shirtsProducts,
-          ...accessoriesProducts,
-          ...drinkwareProducts,
-          ...bagsProducts,
-        ].where((p) => p.categories.contains('Sale')).toList();
-      default:
-        return [];
+    // Gather all product lists
+    final allProducts = [
+      ...hoodiesProducts,
+      ...shirtsProducts,
+      ...jacketsProducts,
+      ...sweatpantsProducts,
+      ...capsProducts,
+      ...socksProducts,
+      ...scarvesProducts,
+      ...glovesProducts,
+      ...accessoriesProducts,
+      ...drinkwareProducts,
+      ...bagsProducts,
+      ...saleProducts,
+      ...pinsProducts,
+      ...lanyardsProducts,
+      ...waterBottlesProducts,
+      ...toteBagsProducts,
+      ...backpacksProducts,
+      ...mugsProducts,
+      ...notebooksProducts,
+      ...giftCardsProducts,
+    ];
+    if (widget.collectionTitle == 'Sale') {
+      return allProducts.where((p) => p.categories.contains('Sale')).toList();
     }
+    // Match products whose categories contain the collection title
+    return allProducts
+        .where((p) => p.categories.contains(widget.collectionTitle))
+        .toList();
   }
 
   List<String> get filterOptions {
