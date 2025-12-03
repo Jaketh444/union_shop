@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/models/product.dart';
 import 'package:union_shop/models/product_box.dart';
 import 'package:union_shop/data/product_list.dart';
-import 'package:union_shop/models/header.dart';
-import 'package:union_shop/models/nav_bar.dart';
-import 'package:union_shop/models/footer.dart';
+import 'package:union_shop/widgets/union_shop_scaffold.dart';
+import 'package:union_shop/widgets/collection_filter_bar.dart';
+import 'package:union_shop/widgets/pagination_controls.dart';
 import 'package:union_shop/single_product_page.dart';
 
 class SingleCollectionPage extends StatefulWidget {
@@ -94,51 +94,32 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
   Widget build(BuildContext context) {
     final isSaleCollection = widget.collectionTitle == 'Sale';
 
-    return Scaffold(
-      body: SingleChildScrollView(
+    return UnionShopScaffold(
+      navIndex: 2,
+      child: SingleChildScrollView(
         child: Column(
           children: [
-            const UnionShopHeader(),
-            UnionShopNavBar(context, selectedIndex: 2),
             Text(
               widget.collectionTitle,
               style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text('Filter: '),
-                DropdownButton<String>(
-                  value: filter,
-                  items: filterOptions
-                      .map((f) => DropdownMenuItem(value: f, child: Text(f)))
-                      .toList(),
-                  onChanged: (value) {
-                    if (value != null) {
-                      setState(() {
-                        filter = value;
-                        currentPage = 1;
-                      });
-                    }
-                  },
-                ),
-                const SizedBox(width: 24),
-                const Text('Sort: '),
-                DropdownButton<String>(
-                  value: sort,
-                  items: ['A-Z', 'Z-A']
-                      .map((s) => DropdownMenuItem(value: s, child: Text(s)))
-                      .toList(),
-                  onChanged: (value) {
-                    if (value != null) {
-                      setState(() {
-                        sort = value;
-                        currentPage = 1;
-                      });
-                    }
-                  },
-                ),
-              ],
+            CollectionFilterBar(
+              filterOptions: filterOptions,
+              selectedFilter: filter,
+              onFilterChanged: (value) {
+                setState(() {
+                  filter = value;
+                  currentPage = 1;
+                });
+              },
+              sortOptions: ['A-Z', 'Z-A'],
+              selectedSort: sort,
+              onSortChanged: (value) {
+                setState(() {
+                  sort = value;
+                  currentPage = 1;
+                });
+              },
             ),
             GridView.builder(
               shrinkWrap: true,
@@ -169,23 +150,14 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                 );
               },
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.chevron_left),
-                  onPressed: currentPage > 1
-                      ? () => setState(() => currentPage--)
-                      : null,
-                ),
-                Text('Page $currentPage of $totalPages'),
-                IconButton(
-                  icon: const Icon(Icons.chevron_right),
-                  onPressed: currentPage < totalPages
-                      ? () => setState(() => currentPage++)
-                      : null,
-                ),
-              ],
+            PaginationControls(
+              currentPage: currentPage,
+              totalPages: totalPages,
+              onPrev:
+                  currentPage > 1 ? () => setState(() => currentPage--) : null,
+              onNext: currentPage < totalPages
+                  ? () => setState(() => currentPage++)
+                  : null,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -201,7 +173,6 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                 },
               ),
             ),
-            const UnionShopFooter(),
           ],
         ),
       ),

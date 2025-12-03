@@ -4,13 +4,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:union_shop/about_page.dart';
-import 'package:union_shop/models/nav_bar.dart';
-import 'package:union_shop/models/header.dart';
-import 'package:union_shop/models/footer.dart';
 import 'package:union_shop/collections_page.dart';
 import 'package:union_shop/auth_page.dart';
 import 'package:union_shop/models/cart_item.dart';
-import 'package:union_shop/cart_page.dart'; // <-- Import the CartPage
+import 'package:union_shop/cart_page.dart';
+import 'package:union_shop/widgets/union_shop_scaffold.dart'; // <-- Import the CartPage
 
 Future<void> saveCart(List<CartItem> cartItems) async {
   final prefs = await SharedPreferences.getInstance();
@@ -84,8 +82,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: LayoutBuilder(
+    return UnionShopScaffold(
+      navIndex: 0,
+      child: LayoutBuilder(
         builder: (context, constraints) {
           final isMobile = constraints.maxWidth < 600;
           final heroHeight = isMobile ? 220.0 : 400.0;
@@ -99,8 +98,6 @@ class HomeScreen extends StatelessWidget {
           return SingleChildScrollView(
             child: Column(
               children: [
-                const UnionShopHeader(),
-                UnionShopNavBar(context, selectedIndex: 0),
                 // Hero Section
                 SizedBox(
                   height: heroHeight,
@@ -270,7 +267,6 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const UnionShopFooter(),
               ],
             ),
           );

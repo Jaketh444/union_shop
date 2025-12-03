@@ -4,13 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/models/collection.dart';
 import 'package:union_shop/models/collection_box.dart';
 import 'package:union_shop/single_collection_page.dart';
-import 'package:union_shop/models/header.dart';
-import 'package:union_shop/models/nav_bar.dart';
-import 'package:union_shop/models/footer.dart';
+import 'package:union_shop/widgets/union_shop_scaffold.dart';
+import 'package:union_shop/widgets/collection_filter_bar.dart';
+import 'package:union_shop/widgets/pagination_controls.dart';
 import 'package:union_shop/data/collection_list.dart';
 
 // Example collections list
-
 
 class CollectionsPage extends StatefulWidget {
   const CollectionsPage({super.key});
@@ -55,49 +54,30 @@ class _CollectionsPageState extends State<CollectionsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
+    return UnionShopScaffold(
+      navIndex: 2,
+      child: SingleChildScrollView(
         child: Column(
           children: [
-            const UnionShopHeader(),
-            UnionShopNavBar(context, selectedIndex: 2),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Filter: '),
-                  DropdownButton<String>(
-                    value: filter,
-                    items: filterOptions
-                        .map((f) => DropdownMenuItem(value: f, child: Text(f)))
-                        .toList(),
-                    onChanged: (value) {
-                      if (value != null) {
-                        setState(() {
-                          filter = value;
-                          currentPage = 1;
-                        });
-                      }
-                    },
-                  ),
-                  const SizedBox(width: 24),
-                  const Text('Sort: '),
-                  DropdownButton<String>(
-                    value: sort,
-                    items: ['A-Z', 'Z-A']
-                        .map((s) => DropdownMenuItem(value: s, child: Text(s)))
-                        .toList(),
-                    onChanged: (value) {
-                      if (value != null) {
-                        setState(() {
-                          sort = value;
-                          currentPage = 1;
-                        });
-                      }
-                    },
-                  ),
-                ],
+              child: CollectionFilterBar(
+                filterOptions: filterOptions,
+                selectedFilter: filter,
+                onFilterChanged: (value) {
+                  setState(() {
+                    filter = value;
+                    currentPage = 1;
+                  });
+                },
+                sortOptions: ['A-Z', 'Z-A'],
+                selectedSort: sort,
+                onSortChanged: (value) {
+                  setState(() {
+                    sort = value;
+                    currentPage = 1;
+                  });
+                },
               ),
             ),
             Padding(
@@ -140,25 +120,15 @@ class _CollectionsPageState extends State<CollectionsPage> {
                 },
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.chevron_left),
-                  onPressed: currentPage > 1
-                      ? () => setState(() => currentPage--)
-                      : null,
-                ),
-                Text('Page $currentPage of $totalPages'),
-                IconButton(
-                  icon: const Icon(Icons.chevron_right),
-                  onPressed: currentPage < totalPages
-                      ? () => setState(() => currentPage++)
-                      : null,
-                ),
-              ],
+            PaginationControls(
+              currentPage: currentPage,
+              totalPages: totalPages,
+              onPrev:
+                  currentPage > 1 ? () => setState(() => currentPage--) : null,
+              onNext: currentPage < totalPages
+                  ? () => setState(() => currentPage++)
+                  : null,
             ),
-            const UnionShopFooter(),
           ],
         ),
       ),
