@@ -87,6 +87,15 @@ class UnionShopNavBar extends StatelessWidget {
                   ),
                 ),
               ],
+              IconButton(
+                icon: const Icon(Icons.shopping_cart),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const CartPage()),
+                  );
+                },
+              ),
             ],
           ),
         );
