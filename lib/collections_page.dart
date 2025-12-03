@@ -59,7 +59,10 @@ class CollectionsPage extends StatelessWidget {
                       onTap: () {
                         if (collection['title'] == 'Accessories') {
                           Navigator.pushNamed(context, '/accessories');
+                        } else if (collection['title'] == 'Sale') {
+                          Navigator.pushNamed(context, '/sale');
                         }
+                        // TODO: Add navigation for other collections as needed
                       },
                       child: Stack(
                         children: [
