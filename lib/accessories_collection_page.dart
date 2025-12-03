@@ -22,8 +22,7 @@ class AccessoriesCollectionPage extends StatelessWidget {
       },
       {
         'name': 'UPSU Water Bottle',
-        'image':
-            'assets/water_bottle_1.png', // Use your actual asset image here
+        'image': 'assets/water_bottle_1.png',
         'price': '£8.00',
       },
       {
@@ -59,29 +58,75 @@ class AccessoriesCollectionPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   Expanded(
-                    child: ListView.builder(
-                      itemCount: products.length,
-                      itemBuilder: (context, index) {
-                        final product = products[index];
-                        return InkWell(
-                          onTap: product['name'] == 'UPSU Water Bottle'
-                              ? () {
-                                  Navigator.pushNamed(context, '/waterbottle');
-                                }
-                              : null,
-                          child: Card(
-                            margin: const EdgeInsets.symmetric(vertical: 12),
-                            child: ListTile(
-                              leading: Image.network(
-                                product['image']!,
-                                width: 64,
-                                height: 64,
-                                fit: BoxFit.cover,
-                              ),
-                              title: Text(product['name']!),
-                              subtitle: Text(product['price']!),
-                            ),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final crossAxisCount = constraints.maxWidth < 600 ? 1 : 2;
+                        return GridView.builder(
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: crossAxisCount,
+                            crossAxisSpacing: 24,
+                            mainAxisSpacing: 24,
+                            childAspectRatio: 1.6,
                           ),
+                          itemCount: products.length,
+                          itemBuilder: (context, index) {
+                            final product = products[index];
+                            return Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              clipBehavior: Clip.antiAlias,
+                              child: InkWell(
+                                onTap: product['name'] == 'UPSU Water Bottle'
+                                    ? () {
+                                        Navigator.pushNamed(context, '/waterbottle');
+                                      }
+                                    : null,
+                                child: Stack(
+                                  children: [
+                                    Positioned.fill(
+                                      child: product['image']!.startsWith('assets/')
+                                          ? Image.asset(
+                                              product['image']!,
+                                              fit: BoxFit.cover,
+                                            )
+                                          : Image.network(
+                                              product['image']!,
+                                              fit: BoxFit.cover,
+                                            ),
+                                    ),
+                                    Container(
+                                      alignment: Alignment.bottomLeft,
+                                      padding: const EdgeInsets.all(12),
+                                      color: Colors.black.withOpacity(0.45),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            product['name']!,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Text(
+                                            product['price']!,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
                         );
                       },
                     ),
