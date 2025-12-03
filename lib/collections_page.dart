@@ -70,7 +70,7 @@ class _CollectionsPageState extends State<CollectionsPage> {
                     currentPage = 1;
                   });
                 },
-                sortOptions: ['A-Z', 'Z-A'],
+                sortOptions: const ['A-Z', 'Z-A'],
                 selectedSort: sort,
                 onSortChanged: (value) {
                   setState(() {

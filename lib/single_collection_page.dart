@@ -112,7 +112,7 @@ class _SingleCollectionPageState extends State<SingleCollectionPage> {
                   currentPage = 1;
                 });
               },
-              sortOptions: ['A-Z', 'Z-A'],
+              sortOptions: const ['A-Z', 'Z-A'],
               selectedSort: sort,
               onSortChanged: (value) {
                 setState(() {
