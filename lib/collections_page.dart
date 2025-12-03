@@ -3,150 +3,47 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/models/collection.dart';
 import 'package:union_shop/models/collection_box.dart';
-import 'package:union_shop/models/footer.dart';
-import 'package:union_shop/models/header.dart';
-import 'package:union_shop/models/nav_bar.dart';
+import 'package:union_shop/single_collection_page.dart';
 
+// Example collections list
 final List<Collection> allCollections = [
   Collection(
-    title: 'Hoodies',
-    image: 'assets/hoodies.png',
-    route: '/hoodies',
-    category: 'Apparel',
-  ),
+      title: 'Hoodies',
+      image: 'assets/hoodies.png',
+      route: '/hoodies',
+      category: 'Apparel'),
   Collection(
-    title: 'Shirts',
-    image: 'assets/shirts.png',
-    route: '/shirts',
-    category: 'Apparel',
-  ),
+      title: 'Shirts',
+      image: 'assets/shirts.png',
+      route: '/shirts',
+      category: 'Apparel'),
   Collection(
-    title: 'Jackets',
-    image: 'assets/jackets.png',
-    route: '/jackets',
-    category: 'Apparel',
-  ),
+      title: 'Jackets',
+      image: 'assets/jackets.png',
+      route: '/jackets',
+      category: 'Apparel'),
   Collection(
-    title: 'Sweatpants',
-    image: 'assets/sweatpants.png',
-    route: '/sweatpants',
-    category: 'Apparel',
-  ),
+      title: 'Accessories',
+      image: 'assets/accessories.png',
+      route: '/accessories',
+      category: 'General'),
   Collection(
-    title: 'Caps',
-    image: 'assets/caps.png',
-    route: '/caps',
-    category: 'Apparel',
-  ),
+      title: 'Drinkware',
+      image: 'assets/drinkware.png',
+      route: '/drinkware',
+      category: 'General'),
   Collection(
-    title: 'Socks',
-    image: 'assets/socks.png',
-    route: '/socks',
-    category: 'Apparel',
-  ),
+      title: 'Bags',
+      image: 'assets/bags.png',
+      route: '/bags',
+      category: 'General'),
   Collection(
-    title: 'Scarves',
-    image: 'assets/scarves.png',
-    route: '/scarves',
-    category: 'Apparel',
-  ),
-  Collection(
-    title: 'Gloves',
-    image: 'assets/gloves.png',
-    route: '/gloves',
-    category: 'Apparel',
-  ),
-  Collection(
-    title: 'Accessories',
-    image: 'assets/accessories.png',
-    route: '/accessories',
-    category: 'General',
-  ),
-  Collection(
-    title: 'Drinkware',
-    image: 'assets/drinkware.png',
-    route: '/drinkware',
-    category: 'General',
-  ),
-  Collection(
-    title: 'Bags',
-    image: 'assets/bags.png',
-    route: '/bags',
-    category: 'General',
-  ),
-  Collection(
-    title: 'Sale',
-    image: 'assets/sale.png',
-    route: '/sale',
-    category: 'Sale',
-  ),
-  // Add even more for demonstration
-  Collection(
-    title: 'Pins',
-    image: 'assets/pins.png',
-    route: '/pins',
-    category: 'Accessories',
-  ),
-  Collection(
-    title: 'Lanyards',
-    image: 'assets/lanyards.png',
-    route: '/lanyards',
-    category: 'Accessories',
-  ),
-  Collection(
-    title: 'Water Bottles',
-    image: 'assets/water_bottles.png',
-    route: '/waterbottles',
-    category: 'Drinkware',
-  ),
-  Collection(
-    title: 'Tote Bags',
-    image: 'assets/tote_bags.png',
-    route: '/totebags',
-    category: 'Bags',
-  ),
-  Collection(
-    title: 'Backpacks',
-    image: 'assets/backpacks.png',
-    route: '/backpacks',
-    category: 'Bags',
-  ),
-  Collection(
-    title: 'Mugs',
-    image: 'assets/mugs.png',
-    route: '/mugs',
-    category: 'Drinkware',
-  ),
-  Collection(
-    title: 'Notebooks',
-    image: 'assets/notebooks.png',
-    route: '/notebooks',
-    category: 'Accessories',
-  ),
-  Collection(
-    title: 'Gift Cards',
-    image: 'assets/giftcards.png',
-    route: '/giftcards',
-    category: 'General',
-  ),
+      title: 'Sale',
+      image: 'assets/sale.png',
+      route: '/sale',
+      category: 'Sale'),
+  // Add more collections as needed
 ];
-
-// Update filterOptions to use categories
-List<String> filterOptions = [
-  'All',
-  ...{for (var c in allCollections) c.category}
-];
-
-// Update filtering logic to use category
-List<Collection> get filteredCollections {
-  // ignore: prefer_typing_uninitialized_variables
-  var filter;
-  if (filter == 'All') return allCollections;
-  return allCollections.where((c) => c.category == filter).toList();
-}
-
-int currentPage = 1;
-const int itemsPerPage = 8; // Show 8 collections per page
 
 class CollectionsPage extends StatefulWidget {
   const CollectionsPage({super.key});
@@ -158,33 +55,36 @@ class CollectionsPage extends StatefulWidget {
 class _CollectionsPageState extends State<CollectionsPage> {
   String filter = 'All';
   String sort = 'A-Z';
+  int currentPage = 1;
+  final int itemsPerPage = 8;
 
-  List<String> filterOptions = [
-    'All',
-    ...{for (var c in allCollections) c.category}
-  ];
-  List<String> sortOptions = ['A-Z', 'Z-A'];
+  List<String> get filterOptions => [
+        'All',
+        ...{for (var c in allCollections) c.category}
+      ];
 
   List<Collection> get filteredCollections {
-    List<Collection> filtered = filter == 'All'
-        ? allCollections
-        : allCollections.where((c) => c.category == filter).toList();
+    if (filter == 'All') return allCollections;
+    return allCollections.where((c) => c.category == filter).toList();
+  }
 
+  List<Collection> get sortedCollections {
+    final list = [...filteredCollections];
     if (sort == 'A-Z') {
-      filtered.sort((a, b) => a.title.compareTo(b.title));
+      list.sort((a, b) => a.title.compareTo(b.title));
     } else {
-      filtered.sort((a, b) => b.title.compareTo(a.title));
+      list.sort((a, b) => b.title.compareTo(a.title));
     }
-    return filtered;
+    return list;
   }
 
   List<Collection> get paginatedCollections {
     final start = (currentPage - 1) * itemsPerPage;
-    final end = (start + itemsPerPage).clamp(0, filteredCollections.length);
-    return filteredCollections.sublist(start, end);
+    final end = (start + itemsPerPage).clamp(0, sortedCollections.length);
+    return sortedCollections.sublist(start, end);
   }
 
-  int get totalPages => (filteredCollections.length / itemsPerPage).ceil();
+  int get totalPages => (sortedCollections.length / itemsPerPage).ceil();
 
   @override
   Widget build(BuildContext context) {
@@ -192,31 +92,38 @@ class _CollectionsPageState extends State<CollectionsPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const UnionShopHeader(),
-            UnionShopNavBar(context, selectedIndex: 3),
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Filter: ', style: TextStyle(fontSize: 16)),
+                  const Text('Filter: '),
                   DropdownButton<String>(
                     value: filter,
                     items: filterOptions
                         .map((f) => DropdownMenuItem(value: f, child: Text(f)))
                         .toList(),
                     onChanged: (value) {
-                      if (value != null) setState(() => filter = value);
+                      if (value != null)
+                        setState(() {
+                          filter = value;
+                          currentPage = 1;
+                        });
                     },
                   ),
                   const SizedBox(width: 24),
-                  const Text('Sort: ', style: TextStyle(fontSize: 16)),
+                  const Text('Sort: '),
                   DropdownButton<String>(
                     value: sort,
-                    items: sortOptions
+                    items: ['A-Z', 'Z-A']
                         .map((s) => DropdownMenuItem(value: s, child: Text(s)))
                         .toList(),
                     onChanged: (value) {
-                      if (value != null) setState(() => sort = value);
+                      if (value != null)
+                        setState(() {
+                          sort = value;
+                          currentPage = 1;
+                        });
                     },
                   ),
                 ],
@@ -226,13 +133,11 @@ class _CollectionsPageState extends State<CollectionsPage> {
               padding: const EdgeInsets.all(16),
               child: LayoutBuilder(
                 builder: (context, constraints) {
-                  int crossAxisCount = 4;
-                  double width = constraints.maxWidth;
-                  if (width < 600) {
-                    crossAxisCount = 2;
-                  } else if (width < 900) {
-                    crossAxisCount = 3;
-                  }
+                  int crossAxisCount = constraints.maxWidth < 600
+                      ? 2
+                      : constraints.maxWidth < 900
+                          ? 3
+                          : 4;
                   return GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
@@ -249,7 +154,14 @@ class _CollectionsPageState extends State<CollectionsPage> {
                         title: collection.title,
                         image: collection.image,
                         onTap: () {
-                          Navigator.pushNamed(context, collection.route);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SingleCollectionPage(
+                                collectionTitle: collection.title,
+                              ),
+                            ),
+                          );
                         },
                       );
                     },
@@ -275,7 +187,6 @@ class _CollectionsPageState extends State<CollectionsPage> {
                 ),
               ],
             ),
-            const UnionShopFooter(),
           ],
         ),
       ),
