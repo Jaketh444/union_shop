@@ -3,6 +3,8 @@ import 'package:union_shop/models/product.dart';
 import 'package:union_shop/models/header.dart';
 import 'package:union_shop/models/nav_bar.dart';
 import 'package:union_shop/models/footer.dart';
+import 'package:union_shop/main.dart'; // for cartItems
+import 'package:union_shop/models/cart_item.dart';
 
 class SingleProductPage extends StatefulWidget {
   final Product product;
@@ -141,7 +143,17 @@ class _SingleProductPageState extends State<SingleProductPage> {
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () {
-                      // Add to cart logic here
+                      cartItems.add(
+                        CartItem(
+                          product: widget.product,
+                          selectedSize: selectedSize,
+                          selectedColor: selectedColor,
+                          quantity: quantity,
+                        ),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Added to cart!')),
+                      );
                     },
                     child: const Text('Add to Cart'),
                   ),
