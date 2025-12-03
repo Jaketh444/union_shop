@@ -15,48 +15,6 @@ final List<Product> hoodiesProducts = [
     description: 'A classic university hoodie.',
     price: 25.00,
   ),
-  Product(
-    title: 'Zip Hoodie',
-    image: 'assets/hoodie2.png',
-    images: [
-      'assets/hoodie2.png',
-      'assets/hoodie2_alt1.png',
-      'assets/hoodie2_alt2.png'
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    colors: ['Black', 'Grey'],
-    categories: ['Hoodies'],
-    description: 'A comfy zip-up hoodie.',
-    price: 28.00,
-  ),
-  Product(
-    title: 'Pullover Hoodie',
-    image: 'assets/hoodie3.png',
-    images: [
-      'assets/hoodie3.png',
-      'assets/hoodie3_alt1.png',
-      'assets/hoodie3_alt2.png'
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    colors: ['Navy', 'White'],
-    categories: ['Hoodies'],
-    description: 'Pullover style, soft and warm.',
-    price: 27.00,
-  ),
-  Product(
-    title: 'Sport Hoodie',
-    image: 'assets/hoodie4.png',
-    images: [
-      'assets/hoodie4.png',
-      'assets/hoodie4_alt1.png',
-      'assets/hoodie4_alt2.png'
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    colors: ['Black', 'Grey'],
-    categories: ['Hoodies'],
-    description: 'Sporty hoodie for active students.',
-    price: 30.00,
-  ),
 ];
 
 final List<Product> shirtsProducts = [
@@ -74,47 +32,107 @@ final List<Product> shirtsProducts = [
     description: 'A shirt with the university logo.',
     price: 15.00,
   ),
+];
+
+final List<Product> jacketsProducts = [
   Product(
-    title: 'Long Sleeve Shirt',
-    image: 'assets/shirt2.png',
+    title: 'Varsity Jacket',
+    image: 'assets/jackets.png',
     images: [
-      'assets/shirt2.png',
-      'assets/shirt2_alt1.png',
-      'assets/shirt2_alt2.png'
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    colors: ['White', 'Grey'],
-    categories: ['Shirts'],
-    description: 'A long sleeve university shirt.',
-    price: 18.00,
-  ),
-  Product(
-    title: 'Polo Shirt',
-    image: 'assets/shirt3.png',
-    images: [
-      'assets/shirt3.png',
-      'assets/shirt3_alt1.png',
-      'assets/shirt3_alt2.png'
-    ],
-    sizes: ['S', 'M', 'L', 'XL'],
-    colors: ['Navy', 'White'],
-    categories: ['Shirts'],
-    description: 'Smart polo shirt for events.',
-    price: 20.00,
-  ),
-  Product(
-    title: 'Graphic Tee',
-    image: 'assets/shirt4.png',
-    images: [
-      'assets/shirt4.png',
-      'assets/shirt4_alt1.png',
-      'assets/shirt4_alt2.png'
+      'assets/jackets.png',
+      'assets/jackets_alt1.png',
+      'assets/jackets_alt2.png'
     ],
     sizes: ['S', 'M', 'L', 'XL'],
     colors: ['Black', 'White'],
-    categories: ['Shirts', 'Sale'],
-    description: 'T-shirt with a fun graphic.',
-    price: 16.00,
+    categories: ['Jackets'],
+    description: 'Classic varsity jacket.',
+    price: 40.00,
+  ),
+];
+
+final List<Product> sweatpantsProducts = [
+  Product(
+    title: 'Union Sweatpants',
+    image: 'assets/sweatpants.png',
+    images: [
+      'assets/sweatpants.png',
+      'assets/sweatpants_alt1.png',
+      'assets/sweatpants_alt2.png'
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Grey', 'Black'],
+    categories: ['Sweatpants'],
+    description: 'Comfortable sweatpants for lounging.',
+    price: 22.00,
+  ),
+];
+
+final List<Product> capsProducts = [
+  Product(
+    title: 'Union Cap',
+    image: 'assets/caps.png',
+    images: [
+      'assets/caps.png',
+      'assets/caps_alt1.png',
+      'assets/caps_alt2.png'
+    ],
+    sizes: [],
+    colors: ['Black', 'Purple'],
+    categories: ['Caps'],
+    description: 'Stylish cap with university logo.',
+    price: 12.00,
+  ),
+];
+
+final List<Product> socksProducts = [
+  Product(
+    title: 'Union Socks',
+    image: 'assets/socks.png',
+    images: [
+      'assets/socks.png',
+      'assets/socks_alt1.png',
+      'assets/socks_alt2.png'
+    ],
+    sizes: ['S', 'M', 'L'],
+    colors: ['White', 'Purple'],
+    categories: ['Socks'],
+    description: 'Comfy socks for everyday wear.',
+    price: 5.00,
+  ),
+];
+
+final List<Product> scarvesProducts = [
+  Product(
+    title: 'Union Scarf',
+    image: 'assets/scarves.png',
+    images: [
+      'assets/scarves.png',
+      'assets/scarves_alt1.png',
+      'assets/scarves_alt2.png'
+    ],
+    sizes: [],
+    colors: ['Purple', 'White'],
+    categories: ['Scarves'],
+    description: 'Warm scarf for chilly days.',
+    price: 10.00,
+  ),
+];
+
+final List<Product> glovesProducts = [
+  Product(
+    title: 'Union Gloves',
+    image: 'assets/gloves.png',
+    images: [
+      'assets/gloves.png',
+      'assets/gloves_alt1.png',
+      'assets/gloves_alt2.png'
+    ],
+    sizes: ['S', 'M', 'L'],
+    colors: ['Black', 'Grey'],
+    categories: ['Gloves'],
+    description: 'Keep your hands warm.',
+    price: 8.00,
   ),
 ];
 
@@ -133,44 +151,6 @@ final List<Product> accessoriesProducts = [
     description: 'University branded lanyard.',
     price: 3.00,
   ),
-  Product(
-    title: 'Student Card Holder',
-    image: 'assets/cardholder.png',
-    images: [
-      'assets/cardholder.png',
-      'assets/cardholder_alt1.png',
-      'assets/cardholder_alt2.png'
-    ],
-    sizes: [],
-    colors: ['Black', 'Clear'],
-    categories: ['Accessories'],
-    description: 'Keep your student card safe.',
-    price: 4.00,
-  ),
-  Product(
-    title: 'Pin Badge',
-    image: 'assets/pin.png',
-    images: ['assets/pin.png', 'assets/pin_alt1.png', 'assets/pin_alt2.png'],
-    sizes: [],
-    colors: ['Gold', 'Silver'],
-    categories: ['Accessories'],
-    description: 'Union pin badge.',
-    price: 2.00,
-  ),
-  Product(
-    title: 'Notebook',
-    image: 'assets/notebook.png',
-    images: [
-      'assets/notebook.png',
-      'assets/notebook_alt1.png',
-      'assets/notebook_alt2.png'
-    ],
-    sizes: [],
-    colors: ['Purple', 'Black'],
-    categories: ['Accessories'],
-    description: 'A5 notebook for lectures.',
-    price: 5.00,
-  ),
 ];
 
 final List<Product> drinkwareProducts = [
@@ -187,30 +167,6 @@ final List<Product> drinkwareProducts = [
     categories: ['Drinkware', 'Sale'],
     description: 'Reusable water bottle.',
     price: 8.00,
-  ),
-  Product(
-    title: 'Union Mug',
-    image: 'assets/mug.png',
-    images: ['assets/mug.png', 'assets/mug_alt1.png', 'assets/mug_alt2.png'],
-    sizes: [],
-    colors: ['White'],
-    categories: ['Drinkware'],
-    description: 'Ceramic mug for hot drinks.',
-    price: 6.00,
-  ),
-  Product(
-    title: 'Travel Cup',
-    image: 'assets/travel_cup.png',
-    images: [
-      'assets/travel_cup.png',
-      'assets/travel_cup_alt1.png',
-      'assets/travel_cup_alt2.png'
-    ],
-    sizes: [],
-    colors: ['Black', 'Silver'],
-    categories: ['Drinkware'],
-    description: 'Take your coffee on the go.',
-    price: 10.00,
   ),
 ];
 
@@ -229,32 +185,157 @@ final List<Product> bagsProducts = [
     description: 'Eco-friendly tote bag.',
     price: 6.00,
   ),
+];
+
+final List<Product> saleProducts = [
   Product(
-    title: 'Backpack',
-    image: 'assets/backpack.png',
+    title: 'Sale Hoodie',
+    image: 'assets/hoodie_1.png',
     images: [
-      'assets/backpack.png',
-      'assets/backpack_alt1.png',
-      'assets/backpack_alt2.png'
+      'assets/hoodie_1.png',
+      'assets/hoodie_1_alt1.png',
+      'assets/hoodie_1_alt2.png'
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Black', 'Purple', 'White'],
+    categories: ['Hoodies', 'Sale'],
+    description: 'A classic university hoodie on sale.',
+    price: 12.50,
+  ),
+];
+
+final List<Product> pinsProducts = [
+  Product(
+    title: 'Union Pin',
+    image: 'assets/pins.png',
+    images: [
+      'assets/pins.png',
+      'assets/pins_alt1.png',
+      'assets/pins_alt2.png'
+    ],
+    sizes: [],
+    colors: ['Gold', 'Silver'],
+    categories: ['Pins'],
+    description: 'Union logo pin badge.',
+    price: 2.00,
+  ),
+];
+
+final List<Product> lanyardsProducts = [
+  Product(
+    title: 'Event Lanyard',
+    image: 'assets/lanyards.png',
+    images: [
+      'assets/lanyards.png',
+      'assets/lanyards_alt1.png',
+      'assets/lanyards_alt2.png'
+    ],
+    sizes: [],
+    colors: ['Purple', 'Black'],
+    categories: ['Lanyards'],
+    description: 'Special event lanyard.',
+    price: 3.00,
+  ),
+];
+
+final List<Product> waterBottlesProducts = [
+  Product(
+    title: 'Sports Water Bottle',
+    image: 'assets/water_bottle_1.png',
+    images: [
+      'assets/water_bottle_1.png',
+      'assets/water_bottle_2.png',
+      'assets/water_bottle_3.png'
+    ],
+    sizes: ['500ml', '1L'],
+    colors: ['Blue', 'Clear'],
+    categories: ['Water Bottles'],
+    description: 'Durable sports water bottle.',
+    price: 7.00,
+  ),
+];
+
+final List<Product> toteBagsProducts = [
+  Product(
+    title: 'Union Tote Bag',
+    image: 'assets/tote_bags.png',
+    images: [
+      'assets/tote_bags.png',
+      'assets/tote_bags_alt1.png',
+      'assets/tote_bags_alt2.png'
+    ],
+    sizes: [],
+    colors: ['Natural', 'Purple'],
+    categories: ['Tote Bags'],
+    description: 'Union branded tote bag.',
+    price: 6.00,
+  ),
+];
+
+final List<Product> backpacksProducts = [
+  Product(
+    title: 'Union Backpack',
+    image: 'assets/backpacks.png',
+    images: [
+      'assets/backpacks.png',
+      'assets/backpacks_alt1.png',
+      'assets/backpacks_alt2.png'
     ],
     sizes: [],
     colors: ['Black', 'Blue'],
-    categories: ['Bags'],
-    description: 'Spacious student backpack.',
+    categories: ['Backpacks'],
+    description: 'Spacious backpack for students.',
     price: 20.00,
   ),
+];
+
+final List<Product> mugsProducts = [
   Product(
-    title: 'Gym Bag',
-    image: 'assets/gym_bag.png',
+    title: 'Union Mug',
+    image: 'assets/mugs.png',
     images: [
-      'assets/gym_bag.png',
-      'assets/gym_bag_alt1.png',
-      'assets/gym_bag_alt2.png'
+      'assets/mugs.png',
+      'assets/mugs_alt1.png',
+      'assets/mugs_alt2.png'
     ],
     sizes: [],
-    colors: ['Black'],
-    categories: ['Bags'],
-    description: 'Perfect for sports kit.',
-    price: 12.00,
+    colors: ['White'],
+    categories: ['Mugs'],
+    description: 'Ceramic mug for hot drinks.',
+    price: 6.00,
+  ),
+];
+
+final List<Product> notebooksProducts = [
+  Product(
+    title: 'Union Notebook',
+    image: 'assets/notebooks.png',
+    images: [
+      'assets/notebooks.png',
+      'assets/notebooks_alt1.png',
+      'assets/notebooks_alt2.png'
+    ],
+    sizes: [],
+    colors: ['Purple', 'Black'],
+    categories: ['Notebooks'],
+    description: 'A5 notebook for lectures.',
+    price: 5.00,
+  ),
+];
+
+final List<Product> giftCardsProducts = [
+  Product(
+    title: 'Union Gift Card',
+    image: 'assets/giftcards.png',
+    images: [
+      'assets/giftcards.png',
+      'assets/giftcards_alt1.png',
+      'assets/giftcards_alt2.png'
+    ],
+    sizes: [],
+    colors: ['Purple'],
+    categories: ['Gift Cards'],
+    description: 'Gift card for the Union Shop.',
+    price: 20.00,
   ),
 ];
