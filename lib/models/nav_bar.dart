@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:union_shop/cart_page.dart';
 
 class UnionShopNavBar extends StatelessWidget {
   final BuildContext context;
