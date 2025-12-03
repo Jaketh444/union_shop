@@ -347,3 +347,6 @@ class _ProductCardState extends State<ProductCard> {
     );
   }
 }
+
+// Add this at the top level (outside any class)
+List<CartItem> cartItems = [];
