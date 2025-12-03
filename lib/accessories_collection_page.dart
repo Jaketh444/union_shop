@@ -60,9 +60,11 @@ class AccessoriesCollectionPage extends StatelessWidget {
                   Expanded(
                     child: LayoutBuilder(
                       builder: (context, constraints) {
-                        final crossAxisCount = constraints.maxWidth < 600 ? 1 : 2;
+                        final crossAxisCount =
+                            constraints.maxWidth < 600 ? 1 : 2;
                         return GridView.builder(
-                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: crossAxisCount,
                             crossAxisSpacing: 24,
                             mainAxisSpacing: 24,
@@ -79,13 +81,15 @@ class AccessoriesCollectionPage extends StatelessWidget {
                               child: InkWell(
                                 onTap: product['name'] == 'UPSU Water Bottle'
                                     ? () {
-                                        Navigator.pushNamed(context, '/waterbottle');
+                                        Navigator.pushNamed(
+                                            context, '/waterbottle');
                                       }
                                     : null,
                                 child: Stack(
                                   children: [
                                     Positioned.fill(
-                                      child: product['image']!.startsWith('assets/')
+                                      child: product['image']!
+                                              .startsWith('assets/')
                                           ? Image.asset(
                                               product['image']!,
                                               fit: BoxFit.cover,
@@ -101,7 +105,8 @@ class AccessoriesCollectionPage extends StatelessWidget {
                                       color: Colors.black.withOpacity(0.45),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             product['name']!,
