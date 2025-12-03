@@ -27,6 +27,36 @@ final List<Collection> allCollections = [
     category: 'Apparel',
   ),
   Collection(
+    title: 'Sweatpants',
+    image: 'assets/sweatpants.png',
+    route: '/sweatpants',
+    category: 'Apparel',
+  ),
+  Collection(
+    title: 'Caps',
+    image: 'assets/caps.png',
+    route: '/caps',
+    category: 'Apparel',
+  ),
+  Collection(
+    title: 'Socks',
+    image: 'assets/socks.png',
+    route: '/socks',
+    category: 'Apparel',
+  ),
+  Collection(
+    title: 'Scarves',
+    image: 'assets/scarves.png',
+    route: '/scarves',
+    category: 'Apparel',
+  ),
+  Collection(
+    title: 'Gloves',
+    image: 'assets/gloves.png',
+    route: '/gloves',
+    category: 'Apparel',
+  ),
+  Collection(
     title: 'Accessories',
     image: 'assets/accessories.png',
     route: '/accessories',
@@ -50,25 +80,69 @@ final List<Collection> allCollections = [
     route: '/sale',
     category: 'Sale',
   ),
+  // Add even more for demonstration
+  Collection(
+    title: 'Pins',
+    image: 'assets/pins.png',
+    route: '/pins',
+    category: 'Accessories',
+  ),
+  Collection(
+    title: 'Lanyards',
+    image: 'assets/lanyards.png',
+    route: '/lanyards',
+    category: 'Accessories',
+  ),
+  Collection(
+    title: 'Water Bottles',
+    image: 'assets/water_bottles.png',
+    route: '/waterbottles',
+    category: 'Drinkware',
+  ),
+  Collection(
+    title: 'Tote Bags',
+    image: 'assets/tote_bags.png',
+    route: '/totebags',
+    category: 'Bags',
+  ),
+  Collection(
+    title: 'Backpacks',
+    image: 'assets/backpacks.png',
+    route: '/backpacks',
+    category: 'Bags',
+  ),
+  Collection(
+    title: 'Mugs',
+    image: 'assets/mugs.png',
+    route: '/mugs',
+    category: 'Drinkware',
+  ),
+  Collection(
+    title: 'Notebooks',
+    image: 'assets/notebooks.png',
+    route: '/notebooks',
+    category: 'Accessories',
+  ),
+  Collection(
+    title: 'Gift Cards',
+    image: 'assets/giftcards.png',
+    route: '/giftcards',
+    category: 'General',
+  ),
 ];
 
 // Update filterOptions to use categories
-List<String> filterOptions = ['All', 'Apparel', 'General', 'Sale'];
+List<String> filterOptions = [
+  'All',
+  ...{for (var c in allCollections) c.category}
+];
 
 // Update filtering logic to use category
 List<Collection> get filteredCollections {
-  String filter = 'All';
-  String sort = 'A-Z';
-  List<Collection> filtered = filter == 'All'
-      ? allCollections
-      : allCollections.where((c) => c.category == filter).toList();
-
-  if (sort == 'A-Z') {
-    filtered.sort((a, b) => a.title.compareTo(b.title));
-  } else {
-    filtered.sort((a, b) => b.title.compareTo(a.title));
-  }
-  return filtered;
+  // ignore: prefer_typing_uninitialized_variables
+  var filter;
+  if (filter == 'All') return allCollections;
+  return allCollections.where((c) => c.category == filter).toList();
 }
 
 int currentPage = 1;
@@ -85,7 +159,10 @@ class _CollectionsPageState extends State<CollectionsPage> {
   String filter = 'All';
   String sort = 'A-Z';
 
-  List<String> filterOptions = ['All', 'Apparel', 'General', 'Sale'];
+  List<String> filterOptions = [
+    'All',
+    ...{for (var c in allCollections) c.category}
+  ];
   List<String> sortOptions = ['A-Z', 'Z-A'];
 
   List<Collection> get filteredCollections {
