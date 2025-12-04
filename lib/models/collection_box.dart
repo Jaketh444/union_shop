@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 class CollectionBox extends StatelessWidget {
@@ -40,7 +42,6 @@ class CollectionBox extends StatelessWidget {
             ),
             Container(
               alignment: Alignment.center,
-              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.45),
               child: Text(
                 title,

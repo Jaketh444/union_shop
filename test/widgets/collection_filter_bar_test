@@ -1,0 +1,22 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:union_shop/widgets/collection_filter_bar.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+	testWidgets('CollectionFilterBar displays filter and sort controls', (WidgetTester tester) async {
+		await tester.pumpWidget(MaterialApp(
+			home: CollectionFilterBar(
+				categories: ['All', 'Sale'],
+				selectedCategory: 'All',
+				onCategoryChanged: (_) {},
+				sortOptions: ['Price', 'Name'],
+				selectedSort: 'Price',
+				onSortChanged: (_) {},
+			),
+		));
+		expect(find.text('All'), findsOneWidget);
+		expect(find.text('Sale'), findsOneWidget);
+		expect(find.text('Price'), findsOneWidget);
+		expect(find.text('Name'), findsOneWidget);
+	});
+}
