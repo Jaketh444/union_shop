@@ -63,8 +63,8 @@
 
 ### Testing (6%)
 
-- [ ] Add tests covering most/all app functionality
-- [ ] Ensure all tests pass
+- [X] Add tests covering most/all app functionality
+- [X] Ensure all tests pass
 
 ### External Services (6%)
 
@@ -84,7 +84,7 @@
 - [X] Be ready for a 10-minute live demo in weeks 19–20
 - [X] Able to clone your repo and run the project live
 - [X] Prepared to show implemented features
-- [] Able to explain your code when asked
+- [ ] Able to explain your code when asked
 
 ## 9. Project Structure
 
