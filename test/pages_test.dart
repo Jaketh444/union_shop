@@ -6,7 +6,6 @@ import 'package:union_shop/cart_page.dart';
 import 'package:union_shop/collections_page.dart';
 import 'package:union_shop/single_collection_page.dart';
 import 'package:union_shop/single_product_page.dart';
-import 'package:flutter/material.dart';
 import 'package:union_shop/models/product.dart';
 
 void main() {
