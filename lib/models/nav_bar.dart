@@ -21,8 +21,8 @@ class UnionShopNavBar extends StatelessWidget {
                 onTap: () => Navigator.pushNamed(context, '/'),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Image.network(
-                    'https://shop.upsu.net/cdn/shop/files/upsu_300x300.png?v=1614735854',
+                  child: Image.asset(
+                    'assets/logo.png',
                     height: 48,
                   ),
                 ),
