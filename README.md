@@ -1,5 +1,16 @@
 # Union Shop Flutter App
 
+---
+
+## Recent Updates
+
+- December 2025: Full codebase scan and clean-up completed
+- Removed deprecated code and duplication
+- Applied automated formatting and fixes to all Dart files
+- Refactored for clarity and maintainability
+
+---
+
 A cross-platform shop app for the University of Portsmouth Students’ Union.  
 Browse official merchandise, view collections, and explore products in a modern, responsive interface.
 
