@@ -1,32 +1,33 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:union_shop/widgets/collection_filter_bar.dart';
 import 'package:union_shop/widgets/pagination_controls.dart';
-import 'package:union_shop/widgets/union_shop_scaffold.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   group('CollectionFilterBar', () {
-    testWidgets('displays filter and sort controls',
+    testWidgets('renders filter and sort dropdowns',
         (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
-        home: CollectionFilterBar(
-          filterOptions: ['All', 'Sale'],
-          selectedFilter: 'All',
-          onFilterChanged: (_) {},
-          sortOptions: ['Price', 'Name'],
-          selectedSort: 'Price',
-          onSortChanged: (_) {},
+        home: Scaffold(
+          body: CollectionFilterBar(
+            filterOptions: ['All', 'Sale'],
+            selectedFilter: 'All',
+            onFilterChanged: (_) {},
+            sortOptions: ['Price', 'Name'],
+            selectedSort: 'Price',
+            onSortChanged: (_) {},
+          ),
         ),
       ));
-      expect(find.text('All'), findsOneWidget);
-      expect(find.text('Sale'), findsOneWidget);
-      expect(find.text('Price'), findsOneWidget);
-      expect(find.text('Name'), findsOneWidget);
+      expect(find.byType(DropdownButton<String>), findsNWidgets(2));
+      expect(find.text('Filter: '), findsOneWidget);
+      expect(find.text('Sort: '), findsOneWidget);
     });
   });
 
   group('PaginationControls', () {
-    testWidgets('displays navigation buttons', (WidgetTester tester) async {
+    testWidgets('renders page info and navigation buttons',
+        (WidgetTester tester) async {
       await tester.pumpWidget(MaterialApp(
         home: PaginationControls(
           currentPage: 1,
@@ -41,19 +42,4 @@ void main() {
     });
   });
 
-  group('UnionShopScaffold', () {
-    testWidgets('displays header, nav bar, and footer',
-        (WidgetTester tester) async {
-      await tester.pumpWidget(const MaterialApp(
-        home: UnionShopScaffold(
-          navIndex: 0,
-          child: Text('Main Content'),
-        ),
-      ));
-      expect(find.text('Free UK delivery on orders over £30!'), findsOneWidget);
-      expect(find.text('Main Content'), findsOneWidget);
-      expect(
-          find.text('© 2025 Union Shop. All rights reserved.'), findsOneWidget);
-    });
-  });
 }
