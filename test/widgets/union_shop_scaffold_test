@@ -1,0 +1,17 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:union_shop/widgets/union_shop_scaffold.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+	testWidgets('UnionShopScaffold displays header, nav bar, and footer', (WidgetTester tester) async {
+		await tester.pumpWidget(const MaterialApp(
+			home: UnionShopScaffold(
+				selectedIndex: 0,
+				child: Text('Main Content'),
+			),
+		));
+		expect(find.text('Free UK delivery on orders over £30!'), findsOneWidget);
+		expect(find.text('Main Content'), findsOneWidget);
+		expect(find.text('© 2025 Union Shop. All rights reserved.'), findsOneWidget);
+	});
+}
