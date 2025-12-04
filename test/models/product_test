@@ -1,0 +1,53 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:union_shop/models/product.dart';
+
+void main() {
+	group('Product', () {
+		test('constructor sets fields correctly', () {
+			final product = Product(
+				title: 'Test Product',
+				image: 'test.png',
+				description: 'A test product',
+				categories: ['Test'],
+				price: 9.99,
+			);
+			expect(product.title, 'Test Product');
+			expect(product.image, 'test.png');
+			expect(product.description, 'A test product');
+			expect(product.categories, ['Test']);
+			expect(product.price, 9.99);
+		});
+
+		test('toMap returns correct map', () {
+			final product = Product(
+				title: 'Test Product',
+				image: 'test.png',
+				description: 'A test product',
+				categories: ['Test'],
+				price: 9.99,
+			);
+			final map = product.toMap();
+			expect(map['title'], 'Test Product');
+			expect(map['image'], 'test.png');
+			expect(map['description'], 'A test product');
+			expect(map['categories'], ['Test']);
+			expect(map['price'], 9.99);
+		});
+
+		test('fromMap creates correct Product', () {
+			final map = {
+				'title': 'Test Product',
+				'image': 'test.png',
+				'description': 'A test product',
+				'categories': ['Test'],
+				'price': 9.99,
+			};
+			final product = Product.fromMap(map);
+			expect(product.title, 'Test Product');
+			expect(product.image, 'test.png');
+			expect(product.description, 'A test product');
+			expect(product.categories, ['Test']);
+			expect(product.price, 9.99);
+		});
+	});
+}

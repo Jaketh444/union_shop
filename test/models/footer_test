@@ -1,0 +1,14 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:union_shop/models/footer.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+	testWidgets('UnionShopFooter renders opening hours and contact info', (WidgetTester tester) async {
+		await tester.pumpWidget(const MaterialApp(home: UnionShopFooter()));
+		expect(find.text('Opening Hours'), findsOneWidget);
+		expect(find.text('Contact Info'), findsOneWidget);
+		expect(find.text('© 2025 Union Shop. All rights reserved.'), findsOneWidget);
+		expect(find.text('Phone: 123-456-7890'), findsOneWidget);
+		expect(find.text('Email: info@unionshop.com'), findsOneWidget);
+	});
+}

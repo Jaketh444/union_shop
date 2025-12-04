@@ -1,0 +1,19 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:union_shop/models/collection.dart';
+
+void main() {
+	group('Collection', () {
+		test('constructor sets fields correctly', () {
+			final collection = Collection(
+				title: 'Summer',
+				image: 'summer.png',
+				route: '/summer',
+				category: 'Seasonal',
+			);
+			expect(collection.title, 'Summer');
+			expect(collection.image, 'summer.png');
+			expect(collection.route, '/summer');
+			expect(collection.category, 'Seasonal');
+		});
+	});
+}

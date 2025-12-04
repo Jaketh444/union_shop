@@ -1,0 +1,32 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:union_shop/models/product_customisation.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+	testWidgets('ProductCustomisation displays dropdowns, quantity, and button', (WidgetTester tester) async {
+		String selectedSize = 'M';
+		String selectedColour = 'Red';
+		int quantity = 1;
+		await tester.pumpWidget(MaterialApp(
+			home: ProductCustomisation(
+				sizes: ['S', 'M', 'L'],
+				selectedSize: selectedSize,
+				onSizeChanged: (val) => selectedSize = val ?? 'M',
+				colours: ['Red', 'Blue'],
+				selectedColour: selectedColour,
+				onColourChanged: (val) => selectedColour = val ?? 'Red',
+				quantity: quantity,
+				onIncrease: () => quantity++,
+				onDecrease: () => quantity--,
+				onAddToCart: () {},
+			),
+		));
+		expect(find.text('Size: '), findsOneWidget);
+		expect(find.text('Colour: '), findsOneWidget);
+		expect(find.text('Quantity: '), findsOneWidget);
+		expect(find.text('Add to Cart'), findsOneWidget);
+		expect(find.text('M'), findsOneWidget);
+		expect(find.text('Red'), findsOneWidget);
+		expect(find.text('1'), findsOneWidget);
+	});
+}

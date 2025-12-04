@@ -1,0 +1,10 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:union_shop/models/header.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+	testWidgets('UnionShopHeader displays delivery text', (WidgetTester tester) async {
+		await tester.pumpWidget(const MaterialApp(home: UnionShopHeader()));
+		expect(find.text('Free UK delivery on orders over £30!'), findsOneWidget);
+	});
+}
